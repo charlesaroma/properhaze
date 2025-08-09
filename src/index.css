@@ -1,0 +1,268 @@
+@import "tailwindcss";
+
+/* Custom CSS Variables for Tailwind CSS v4.1 */
+@layer base {
+  :root {
+    /* Semantic Colors - Controls */
+    --color-base: #ffffff;
+    --color-error: #ef4444;
+    --color-alert: #f97316;
+    --color-info: #3b82f6;
+    --color-success: #10b981;
+    --color-warning: #f59e0b;
+    --color-placeholder: #9ca3af;
+    --color-disabled: #6b7280;
+    
+    /* Additional Semantic Colors */
+    --color-semantic-content-error: #B91C1C;
+
+    /* Additional Controls */
+    --color-hover: #f3f4f6;
+    --color-on-focus: #dbeafe;
+    --color-on-contrast: #1f2937;
+    --color-border: #e5e7eb;
+    --color-link: #2563eb;
+
+    /* Semantic Surface */
+    --color-black-canvas: #111827;
+    --color-cream-canvas: #f9fafb;
+
+    /* App Specific Colors */
+    --color-primary: #1e40af;
+    --color-secondary: #7c3aed;
+    --color-accent: #f59e0b;
+    
+    /* Country Flag Colors (From your UI) */
+    --color-czech-blue: #11316b;
+    --color-czech-red: #dc2626;
+    --color-austria-red: #dc2626;
+    --color-belgium-black: #000000;
+    --color-belgium-yellow: #fbbf24;
+    --color-estonia-blue: #3b82f6;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: var(--color-black-canvas);
+    color: var(--color-cream-canvas);
+  }
+
+  /* Custom Button Styles */
+  .btn-primary {
+    background-color: var(--color-primary);
+    color: var(--color-base);
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+  }
+  
+  .btn-primary:hover {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    transform: scale(1.05);
+  }
+  
+  .btn-primary:active {
+    transform: scale(0.95);
+  }
+
+  .btn-secondary {
+    background-color: transparent;
+    border: 1px solid var(--color-border);
+    color: var(--color-cream-canvas);
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+  }
+  
+  .btn-secondary:hover {
+    background-color: var(--color-hover);
+    color: var(--color-on-contrast);
+  }
+
+  .btn-disabled {
+    background-color: var(--color-disabled);
+    color: var(--color-placeholder);
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+
+  /* Input Styles */
+  .input-field {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background-color: var(--color-black-canvas);
+    border: 1px solid var(--color-border);
+    border-radius: 0.5rem;
+    color: var(--color-cream-canvas);
+    transition: all 0.2s ease;
+  }
+  
+  .input-field::placeholder {
+    color: var(--color-placeholder);
+  }
+  
+  .input-field:focus {
+    outline: none;
+    ring: 2px;
+    ring-color: var(--color-primary);
+    border-color: transparent;
+  }
+
+  .input-error {
+    border-color: var(--color-error);
+  }
+  
+  .input-error:focus {
+    ring-color: var(--color-error);
+  }
+
+  /* Card Styles */
+  .card {
+    background-color: var(--color-black-canvas);
+    border: 1px solid var(--color-border);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Animation Classes */
+  .fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+
+  .slide-up {
+    animation: slideUp 0.6s ease-out;
+  }
+
+  .bounce-in {
+    animation: bounceIn 0.8s ease-out;
+  }
+
+  /* Confetti Animation */
+  .confetti-burst {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .confetti-burst::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, var(--color-accent), transparent);
+    animation: confettiSpin 2s linear infinite;
+    opacity: 0.1;
+  }
+
+  /* Glassmorphism Effect */
+  .glass {
+    backdrop-filter: blur(16px);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  /* Country Flag Gradient Backgrounds */
+  .flag-czech {
+    background: linear-gradient(135deg, var(--color-czech-blue) 0%, var(--color-base) 50%, var(--color-czech-red) 100%);
+  }
+
+  .flag-austria {
+    background: linear-gradient(180deg, var(--color-austria-red) 0%, var(--color-base) 33%, var(--color-base) 66%, var(--color-austria-red) 100%);
+  }
+
+  .flag-belgium {
+    background: linear-gradient(90deg, var(--color-belgium-black) 0%, var(--color-belgium-yellow) 33%, var(--color-austria-red) 66%);
+  }
+
+  .flag-estonia {
+    background: linear-gradient(180deg, var(--color-estonia-blue) 0%, var(--color-belgium-black) 33%, var(--color-base) 66%);
+  }
+
+  /* Mobile Responsiveness */
+  @media (max-width: 768px) {
+    .container {
+      padding: 0 1rem;
+    }
+    
+    .btn-primary, .btn-secondary {
+      padding: 1rem 1.5rem;
+      font-size: 0.875rem;
+    }
+    
+    .card {
+      padding: 1rem;
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { 
+    opacity: 0;
+    transform: translateY(30px); 
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0); 
+  }
+}
+
+@keyframes bounceIn {
+  0% { 
+    opacity: 0;
+    transform: scale(0.3); 
+  }
+  50% { 
+    opacity: 1;
+    transform: scale(1.05); 
+  }
+  100% { 
+    opacity: 1;
+    transform: scale(1); 
+  }
+}
+
+@keyframes confettiSpin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-black-canvas);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-placeholder);
+}
