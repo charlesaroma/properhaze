@@ -1,9 +1,38 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 const EventsCarousel = () => {
+  const [slidesToShow, setSlidesToShow] = useState(4);
+
+  // Handle responsive behavior manually
+  useEffect(() => {
+    const handleResize = () => {
+      const width = window.innerWidth;
+      if (width >= 1280) {
+        setSlidesToShow(4);
+      } else if (width >= 1024) {
+        setSlidesToShow(3);
+      } else if (width >= 768) {
+        setSlidesToShow(2);
+      } else if (width >= 640) {
+        setSlidesToShow(2);
+      } else {
+        setSlidesToShow(1);
+      }
+    };
+
+    // Set initial value
+    handleResize();
+
+    // Add event listener
+    window.addEventListener('resize', handleResize);
+
+    // Cleanup
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   const events = [
     {
       id: 1,
@@ -53,7 +82,7 @@ const EventsCarousel = () => {
     dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 4, // Default for large screens
+    slidesToShow: slidesToShow,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 4000,
@@ -61,43 +90,7 @@ const EventsCarousel = () => {
     arrows: false,
     swipe: true,
     touchMove: true,
-    responsive: [
-      {
-        breakpoint: 1280,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 1,
-        }
-      },
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 1,
-        }
-      },
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-        }
-      },
-      {
-        breakpoint: 640,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-        }
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        }
-      }
-    ]
+    // Remove responsive array since we're handling it manually
   };
 
   return (
@@ -113,7 +106,7 @@ const EventsCarousel = () => {
 
         {/* React Slick Carousel Container */}
         <div className="relative">
-          <Slider {...settings} className="events-carousel">
+          <Slider {...settings} className="events-carousel" key={slidesToShow}>
             {/* Individual Event Slides */}
             {events.map((event) => (
               <div key={event.id} className="px-1 sm:px-2">
