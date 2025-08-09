@@ -53,7 +53,7 @@ const EventsCarousel = () => {
     dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 1, // Default for mobile
+    slidesToShow: 4, // Default for large screens
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 4000,
@@ -65,21 +65,21 @@ const EventsCarousel = () => {
       {
         breakpoint: 1280,
         settings: {
-          slidesToShow: 5,
+          slidesToShow: 3,
           slidesToScroll: 1,
         }
       },
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 4,
+          slidesToShow: 3,
           slidesToScroll: 1,
         }
       },
       {
         breakpoint: 768,
         settings: {
-          slidesToShow: 3,
+          slidesToShow: 2,
           slidesToScroll: 1,
         }
       },
@@ -148,10 +148,6 @@ const EventsCarousel = () => {
           </Slider>
         </div>
 
-        {/* Mobile Scroll Indicator */}
-        <div className="lg:hidden text-center mt-6 sm:mt-8">
-          <p className="text-placeholder text-xs sm:text-sm">← Swipe to see more events →</p>
-        </div>
       </div>
     </section>
   );

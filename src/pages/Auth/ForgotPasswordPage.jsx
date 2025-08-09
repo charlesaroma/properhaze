@@ -197,8 +197,8 @@ export const ForgotPasswordPage = ({ navigateTo }) => {
               Back to Login
             </button>
           </p>
-      </div>
         </div>
+      </div>
     </div>
   );
 };
