@@ -94,7 +94,7 @@ const EventsCarousel = () => {
   };
 
   return (
-    <section className="py-16 lg:py-20 px-4 lg:px-6 bg-gray-900"> {/* Added dark background to the section */}
+    <section className="py-16 lg:py-20 px-4 lg:px-6"> {/* Added dark background to the section */}
       <div className="max-w-7xl mx-auto">
         
         {/* Section Header */}
