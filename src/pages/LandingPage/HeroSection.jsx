@@ -55,13 +55,13 @@ const HeroSection = () => {
               placeholder="Search profile"
               value={searchQuery}
               onChange={(e) => handleSearch(e.target.value)}
-              className="w-full pl-14 pr-6 py-4 bg-[#05141D]/60 backdrop-blur-md border border-border rounded-2xl text-cream-canvas placeholder-placeholder focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all text-lg"
+              className="w-full pl-14 pr-6 py-3 sm:py-4 bg-[#05141D]/60 backdrop-blur-md border border-gray-600/30 rounded-2xl text-cream-canvas placeholder-placeholder focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all text-base sm:text-lg"
             />
           </div>
 
           {/* Search Results Dropdown */}
           {showResults && searchResults.length > 0 && (
-            <div className="absolute top-full left-0 right-0 mt-2 bg-[#05141D]/90 backdrop-blur-md rounded-xl shadow-2xl z-50 max-h-80 overflow-y-auto">
+            <div className="absolute top-full left-0 right-0 mt-2 bg-[#05141D]/60 backdrop-blur-md rounded-xl shadow-2xl z-50 max-h-80 overflow-y-auto">
               {searchResults.map((user) => (
                 <div
                   key={user.id}
