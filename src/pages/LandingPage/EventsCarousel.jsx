@@ -1,5 +1,7 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 const EventsCarousel = () => {
   const events = [
@@ -7,109 +9,139 @@ const EventsCarousel = () => {
       id: 1,
       title: 'Macado Festival',
       description: 'Celebrate your day-maker with confetti',
-      flag: 'flag-czech',
-      colors: ['bg-blue-600', 'bg-white', 'bg-red-600']
+      flag: 'https://flagcdn.com/w320/cz.png' // Czech Republic
     },
     {
       id: 2,
       title: 'Macado Festival',
       description: 'Celebrate your day-maker with confetti',
-      flag: 'flag-austria',
-      colors: ['bg-red-600', 'bg-white', 'bg-red-600']
+      flag: 'https://flagcdn.com/w320/at.png' // Austria
     },
     {
       id: 3,
       title: 'Macado Festival',
       description: 'Celebrate your day-maker with confetti',
-      flag: 'flag-belgium',
-      colors: ['bg-black', 'bg-yellow-400', 'bg-red-600']
+      flag: 'https://flagcdn.com/w320/be.png' // Belgium
     },
     {
       id: 4,
       title: 'Macado Festival',
       description: 'Celebrate your day-maker with confetti',
-      flag: 'flag-estonia',
-      colors: ['bg-blue-600', 'bg-black', 'bg-white']
+      flag: 'https://flagcdn.com/w320/ee.png' // Estonia
+    },
+    {
+      id: 5,
+      title: 'Macado Festival',
+      description: 'Celebrate your day-maker with confetti',
+      flag: 'https://flagcdn.com/w320/fr.png' // France
+    },
+    {
+      id: 6,
+      title: 'Macado Festival',
+      description: 'Celebrate your day-maker with confetti',
+      flag: 'https://flagcdn.com/w320/de.png' // Germany
+    },
+    {
+      id: 7,
+      title: 'Macado Festival',
+      description: 'Celebrate your day-maker with confetti',
+      flag: 'https://flagcdn.com/w320/it.png' // Italy
     }
   ];
 
-  const EventCard = ({ event, index }) => (
-    <motion.div
-      initial={{ opacity: 0, y: 50 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, delay: index * 0.1 }}
-      className="flex-shrink-0 w-80 card hover:shadow-2xl hover:scale-105 transition-all cursor-pointer group"
-    >
-      <div className={`h-48 rounded-lg ${event.flag} mb-4 relative overflow-hidden`}>
-        {/* Flag representation using gradients */}
-        <div className="absolute inset-0 opacity-80">
-          {event.id === 1 && (
-            <div className="h-full flex">
-              <div className="w-1/3 bg-blue-600"></div>
-              <div className="w-1/3 bg-white"></div>
-              <div className="w-1/3 bg-red-600"></div>
-            </div>
-          )}
-          {event.id === 2 && (
-            <div className="h-full flex flex-col">
-              <div className="h-1/3 bg-red-600"></div>
-              <div className="h-1/3 bg-white"></div>
-              <div className="h-1/3 bg-red-600"></div>
-            </div>
-          )}
-          {event.id === 3 && (
-            <div className="h-full flex flex-col">
-              <div className="h-1/3 bg-yellow-400"></div>
-              <div className="h-1/3 bg-black"></div>
-              <div className="h-1/3 bg-red-600"></div>
-            </div>
-          )}
-          {event.id === 4 && (
-            <div className="h-full flex flex-col">
-              <div className="h-1/3 bg-blue-600"></div>
-              <div className="h-1/3 bg-black"></div>
-              <div className="h-1/3 bg-white"></div>
-            </div>
-          )}
-        </div>
-        <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-all"></div>
-      </div>
-      
-      <h3 className="text-xl font-bold text-cream-canvas mb-2">{event.title}</h3>
-      <p className="text-placeholder">{event.description}</p>
-    </motion.div>
-  );
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 4000,
+    pauseOnHover: false,
+    arrows: false,
+    swipe: true,
+    touchMove: true,
+    responsive: [
+      {
+        breakpoint: 1280,
+        settings: {
+          slidesToShow: 5,
+          slidesToScroll: 1,
+        }
+      },
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 1,
+        }
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+        }
+      },
+      {
+        breakpoint: 640,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        }
+      }
+    ]
+  };
 
   return (
-    <section className="py-20 px-6">
-      <div className="container mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl md:text-5xl font-bold text-cream-canvas mb-4">
+    <section className="py-16 lg:py-20 px-4 lg:px-6">
+      <div className="max-w-7xl mx-auto">
+        
+        {/* Section Header */}
+        <div className="text-center mb-12 lg:mb-16">
+          <h2 className="text-3xl lg:text-4xl xl:text-5xl font-bold text-cream-canvas">
             Events today
           </h2>
-        </motion.div>
+        </div>
 
-        {/* Events Carousel */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
-          className="overflow-x-auto pb-6"
-        >
-          <div className="flex space-x-6 w-max">
-            {events.map((event, index) => (
-              <EventCard key={event.id} event={event} index={index} />
+        {/* React Slick Carousel Container */}
+        <div className="relative">
+          <Slider {...settings} className="events-carousel">
+            {/* Individual Event Slides */}
+            {events.map((event) => (
+              <div key={event.id} className="px-2">
+                <div className="relative rounded-xl overflow-hidden shadow-lg group bg-white max-w-[308px] mx-auto">
+                  
+                  {/* Event Image Container */}
+                  <div className="h-[207px] overflow-hidden">
+                    <img
+                      src={event.flag}
+                      alt={`${event.title} flag`}
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                      onError={(e) => {
+                        e.target.src = 'https://via.placeholder.com/400x300/1f2937/ffffff?text=Flag';
+                        e.target.alt = 'Flag placeholder';
+                      }}
+                    />
+                  </div>
+                  
+                  {/* Event Content Container */}
+                  <div className="min-h-[147px] max-h-[147px] p-4 lg:p-5 bg-black/60 backdrop-blur-sm flex flex-col justify-center">
+                    <h3 className="text-white text-lg lg:text-xl font-semibold mb-2">
+                      {event.title}
+                    </h3>
+                    <p className="text-gray-200 text-sm lg:text-base leading-relaxed">
+                      {event.description}
+                    </p>
+                  </div>
+                </div>
+              </div>
             ))}
-          </div>
-        </motion.div>
+          </Slider>
+        </div>
 
-        {/* Mobile scroll indicator */}
-        <div className="md:hidden text-center mt-8">
+        {/* Mobile Scroll Indicator */}
+        <div className="lg:hidden text-center mt-8">
           <p className="text-placeholder text-sm">← Swipe to see more events →</p>
         </div>
       </div>
