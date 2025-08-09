@@ -61,7 +61,13 @@ const HeroSection = () => {
 
           {/* Search Results Dropdown */}
           {showResults && searchResults.length > 0 && (
-            <div className="absolute top-full left-0 right-0 mt-2 bg-[#05141D]/60 backdrop-blur-md rounded-xl shadow-2xl z-50 max-h-80 overflow-y-auto">
+            <div 
+              className="absolute top-full left-0 right-0 mt-2 bg-[#05141D]/60 backdrop-blur-md rounded-xl shadow-2xl z-50 max-h-80 overflow-y-auto"
+              style={{
+                scrollbarWidth: 'thin',
+                scrollbarColor: '#05141D transparent'
+              }}
+            >
               {searchResults.map((user) => (
                 <div
                   key={user.id}
