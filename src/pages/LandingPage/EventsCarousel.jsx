@@ -53,7 +53,7 @@ const EventsCarousel = () => {
     dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 4,
+    slidesToShow: 1, // Default for mobile
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 4000,
@@ -87,6 +87,13 @@ const EventsCarousel = () => {
         breakpoint: 640,
         settings: {
           slidesToShow: 2,
+          slidesToScroll: 1,
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
           slidesToScroll: 1,
         }
       }
