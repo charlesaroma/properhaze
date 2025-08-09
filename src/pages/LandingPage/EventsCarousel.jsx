@@ -94,7 +94,7 @@ const EventsCarousel = () => {
   };
 
   return (
-    <section className="py-16 lg:py-20 px-4 lg:px-6">
+    <section className="py-16 lg:py-20 px-4 lg:px-6 bg-gray-900"> {/* Added dark background to the section */}
       <div className="max-w-7xl mx-auto">
         
         {/* Section Header */}
@@ -110,7 +110,8 @@ const EventsCarousel = () => {
             {/* Individual Event Slides */}
             {events.map((event) => (
               <div key={event.id} className="px-2">
-                <div className="relative rounded-xl overflow-hidden shadow-lg group bg-white max-w-[308px] mx-auto">
+                {/* Changed bg-white to a translucent dark gray for the main card */}
+                <div className="relative rounded-xl overflow-hidden shadow-lg group bg-gray-800/20 backdrop-blur-sm max-w-[308px] mx-auto">
                   
                   {/* Event Image Container */}
                   <div className="h-[207px] overflow-hidden">
@@ -125,8 +126,8 @@ const EventsCarousel = () => {
                     />
                   </div>
                   
-                  {/* Event Content Container */}
-                  <div className="min-h-[147px] max-h-[147px] p-4 lg:p-5 bg-black/60 backdrop-blur-sm flex flex-col justify-center">
+                  {/* Event Content Container - kept original translucent black with blur */}
+                  <div className="min-h-[147px] max-h-[147px] p-4 lg:p-5 bg-black/30 backdrop-blur-md rounded-b-xl flex flex-col justify-center">
                     <h3 className="text-white text-lg lg:text-xl font-semibold mb-2">
                       {event.title}
                     </h3>

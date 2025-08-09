@@ -33,13 +33,13 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="py-20 px-6">
+    <section className="pt-20 px-6 pb-8">
       <div className="container mx-auto text-center">
         
         {/* Main Title */}
         <div className="mb-5">
           <h1 className="text-2xl md:text-5xl font-bold text-cream-canvas">
-            <span className="text-accent">Reciprocate Delight</span>
+           <span className="text-accent">Reciprocate Delight</span>
           </h1>
         </div>
 
@@ -47,7 +47,7 @@ const HeroSection = () => {
         <div className="relative max-w-2xl mx-auto">
           <div className="relative">
             <MagnifyingGlassIcon 
-              className="absolute left-4 top-1/2 -translate-y-1/2 w-6 h-6 text-white" 
+              className="absolute left-4 top-1/2 -translate-y-1/2 w-6 h-6 text-cream-canvas z-10" 
             />
             <input
               ref={searchRef}
@@ -55,7 +55,7 @@ const HeroSection = () => {
               placeholder="Search profile"
               value={searchQuery}
               onChange={(e) => handleSearch(e.target.value)}
-              className="w-full pl-14 pr-6 py-4 bg-black-canvas/80 backdrop-blur-md border border-border rounded-2xl text-cream-canvas placeholder-placeholder focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all text-lg"
+              className="w-full pl-14 pr-6 py-4 bg-[#05141D]/60 backdrop-blur-md border border-border rounded-2xl text-cream-canvas placeholder-placeholder focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all text-lg"
             />
           </div>
 
