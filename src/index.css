@@ -24,7 +24,7 @@
     --color-link: #2563eb;
 
     /* Semantic Surface */
-    --color-black-canvas: #111827;
+    --color-black-canvas: #05141D;
     --color-cream-canvas: #f9fafb;
 
     /* App Specific Colors */
@@ -119,8 +119,7 @@
   
   .input-field:focus {
     outline: none;
-    ring: 2px;
-    ring-color: var(--color-primary);
+    box-shadow: 0 0 0 2px var(--color-primary);
     border-color: transparent;
   }
 
@@ -129,7 +128,7 @@
   }
   
   .input-error:focus {
-    ring-color: var(--color-error);
+    box-shadow: 0 0 0 2px var(--color-error);
   }
 
   /* Card Styles */
@@ -177,23 +176,6 @@
     backdrop-filter: blur(16px);
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
-  }
-
-  /* Country Flag Gradient Backgrounds */
-  .flag-czech {
-    background: linear-gradient(135deg, var(--color-czech-blue) 0%, var(--color-base) 50%, var(--color-czech-red) 100%);
-  }
-
-  .flag-austria {
-    background: linear-gradient(180deg, var(--color-austria-red) 0%, var(--color-base) 33%, var(--color-base) 66%, var(--color-austria-red) 100%);
-  }
-
-  .flag-belgium {
-    background: linear-gradient(90deg, var(--color-belgium-black) 0%, var(--color-belgium-yellow) 33%, var(--color-austria-red) 66%);
-  }
-
-  .flag-estonia {
-    background: linear-gradient(180deg, var(--color-estonia-blue) 0%, var(--color-belgium-black) 33%, var(--color-base) 66%);
   }
 
   /* Mobile Responsiveness */

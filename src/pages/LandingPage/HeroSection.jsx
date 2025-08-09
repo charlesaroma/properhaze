@@ -38,7 +38,7 @@ const HeroSection = () => {
         
         {/* Main Title */}
         <div className="mb-5">
-          <h1 className="text-2xl md:text-5xl font-bold text-cream-canvas">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-cream-canvas">
            <span className="text-accent">Reciprocate Delight</span>
           </h1>
         </div>
@@ -55,7 +55,7 @@ const HeroSection = () => {
               placeholder="Search profile"
               value={searchQuery}
               onChange={(e) => handleSearch(e.target.value)}
-              className="w-full pl-14 pr-6 py-3 sm:py-4 bg-[#05141D]/60 backdrop-blur-md border border-gray-600/30 rounded-2xl text-cream-canvas placeholder-placeholder focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all text-base sm:text-lg"
+              className="w-full pl-14 pr-6 py-2 sm:py-3 bg-[#05141D]/60 backdrop-blur-md border border-gray-600/30 rounded-2xl text-cream-canvas placeholder-placeholder focus:outline-none focus:ring-2 focus:ring-gray-600/50 focus:border-transparent transition-all text-base sm:text-lg"
             />
           </div>
 
@@ -90,7 +90,7 @@ const HeroSection = () => {
         </div>
 
         {/* Description */}
-        <p className="text-[14px] text-placeholder max-w-xl mx-auto pt-5">
+        <p className="text-[13.5px] text-[var(--color-cream-canvas)]/60 font-light text-placeholder max-w-xl mx-auto pt-5">
           Press buzzer button and dispatch a burst of confetti to surprise and delight your chosen recipient.
         </p>
       </div>
