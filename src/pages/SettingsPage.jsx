@@ -232,7 +232,7 @@ const SettingsPage = () => {
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`flex items-center space-x-2 px-4 py-3 rounded-md transition-all ${
+                className={`flex items-center space-x-2 px-4 py-3 rounded-md transition-all cursor-pointer ${
                   activeTab === tab.id
                     ? 'bg-primary text-white shadow-lg'
                     : 'text-placeholder hover:text-cream-canvas hover:bg-black-canvas/30'
@@ -435,7 +435,7 @@ const SettingsPage = () => {
                   <button
                     type="button"
                     onClick={handleBasicInfoCancel}
-                    className="px-6 py-3 text-cream-canvas border border-border rounded-lg hover:bg-black-canvas/30 hover:border-accent hover:text-accent transition-all duration-200 transform hover:scale-105 active:scale-95"
+                    className="px-6 py-3 text-cream-canvas border border-border rounded-lg hover:bg-black-canvas/30 hover:border-accent hover:text-accent transition-all duration-200 transform hover:scale-105 active:scale-95 cursor-pointer"
                   >
                     Cancel
                   </button>
@@ -585,7 +585,7 @@ const SettingsPage = () => {
                   <button
                     type="button"
                     onClick={handlePasswordCancel}
-                    className="px-6 py-3 text-cream-canvas border border-border rounded-lg hover:bg-black-canvas/30 hover:border-accent hover:text-accent transition-all duration-200 transform hover:scale-105 active:scale-95"
+                    className="px-6 py-3 text-cream-canvas border border-border rounded-lg hover:bg-black-canvas/30 hover:border-accent hover:text-accent transition-all duration-200 transform hover:scale-95 cursor-pointer"
                   >
                     Cancel
                   </button>
@@ -769,7 +769,7 @@ const SettingsPage = () => {
                   <button
                     type="button"
                     onClick={handleSocialAccountsCancel}
-                    className="px-6 py-3 text-cream-canvas border border-border rounded-lg hover:bg-black-canvas/30 hover:border-accent hover:text-accent transition-all duration-200 transform hover:scale-105 active:scale-95"
+                    className="px-6 py-3 text-cream-canvas border border-border rounded-lg hover:bg-black-canvas/30 hover:border-accent hover:text-accent transition-all duration-200 transform hover:scale-105 active:scale-95 cursor-pointer"
                   >
                     Cancel
                   </button>

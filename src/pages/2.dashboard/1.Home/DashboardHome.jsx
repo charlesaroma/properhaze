@@ -74,7 +74,7 @@ export const DashboardPage = ({ navigateTo }) => {
           </p>
           <button
             onClick={() => navigateTo('profile')}
-            className="text-indigo-400 hover:text-indigo-300 transition-colors duration-200"
+            className="text-indigo-400 hover:text-indigo-300 transition-colors duration-200 cursor-pointer"
           >
             Go to Profile
           </button>
@@ -148,7 +148,7 @@ export const DashboardPage = ({ navigateTo }) => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={handleSendConfetti}
-                className="bg-yellow-400 hover:bg-yellow-500 text-gray-900 px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:shadow-2xl transition-all duration-300 flex items-center justify-center mx-auto"
+                className="bg-yellow-400 hover:bg-yellow-500 text-gray-900 px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:shadow-2xl transition-all duration-300 flex items-center justify-center mx-auto cursor-pointer"
               >
                 <Icon icon="mdi:confetti" className="w-6 h-6 mr-2" /> Send Confetti
               </motion.button>

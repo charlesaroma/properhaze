@@ -59,7 +59,7 @@ export const SignupPage = ({ navigateTo }) => {
         
         {/* Top Left Logo */}
         <div className="relative z-10 p-8">
-          <Link to="/" className="flex items-center space-x-3">
+          <Link to="/" className="flex items-center space-x-3 cursor-pointer">
             <img src="/images/Logo.png" alt="Properhaze Logo" className="h-12 w-auto" />
           </Link>
         </div>
@@ -190,7 +190,7 @@ export const SignupPage = ({ navigateTo }) => {
                 <button
                   type="button"
                       onClick={() => setShowPassword(!showPassword)}
-                      className="absolute right-3 top-1/2 transform -translate-y-1/2 text-[var(--color-placeholder)] hover:text-[var(--color-black-canvas)] focus:outline-none"
+                      className="absolute right-3 top-1/2 transform -translate-y-1/2 text-[var(--color-placeholder)] hover:text-[var(--color-black-canvas)] focus:outline-none cursor-pointer"
                 >
                   <Icon
                         icon={showPassword ? "mdi:eye-off" : "mdi:eye"}
@@ -227,7 +227,7 @@ export const SignupPage = ({ navigateTo }) => {
                 <button
                   type="button"
                       onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                      className="absolute right-3 top-1/2 transform -translate-y-1/2 text-[var(--color-placeholder)] hover:text-[var(--color-black-canvas)] focus:outline-none"
+                      className="absolute right-3 top-1/2 transform -translate-y-1/2 text-[var(--color-placeholder)] hover:text-[var(--color-black-canvas)] focus:outline-none cursor-pointer"
                 >
                   <Icon
                         icon={showConfirmPassword ? "mdi:eye-off" : "mdi:eye"}
@@ -245,7 +245,7 @@ export const SignupPage = ({ navigateTo }) => {
             <button
               type="submit"
                   disabled={isLoading || isSubmitting}
-                  className="w-full bg-[var(--color-black-canvas)] text-[var(--color-cream-canvas)] py-2 rounded-lg font-semibold hover:bg-[var(--color-black-canvas)]/90 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed shadow-md hover:shadow-lg flex items-center justify-center"
+                  className="w-full bg-[var(--color-black-canvas)] text-[var(--color-cream-canvas)] py-2 rounded-lg font-semibold hover:bg-[var(--color-black-canvas)]/90 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed shadow-md hover:shadow-lg flex items-center justify-center cursor-pointer"
             >
               {isLoading ? (
                 <Icon
@@ -263,7 +263,7 @@ export const SignupPage = ({ navigateTo }) => {
                 <button
                       type="button"
                   onClick={() => navigate("/terms")}
-                      className="text-[var(--color-primary)] hover:text-[var(--color-primary)]/80 focus:outline-none"
+                      className="text-[var(--color-primary)] hover:text-[var(--color-primary)]/80 focus:outline-none cursor-pointer"
                 >
                   Terms of use
                 </button>
@@ -273,7 +273,7 @@ export const SignupPage = ({ navigateTo }) => {
                 <button
                       type="button"
                   onClick={() => navigate("/privacy")}
-                      className="text-[var(--color-primary)] hover:text-[var(--color-primary)]/80 focus:outline-none"
+                      className="text-[var(--color-primary)] hover:text-[var(--color-primary)]/80 focus:outline-none cursor-pointer"
                 >
                   Privacy policy
                 </button>

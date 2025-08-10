@@ -84,7 +84,7 @@ export const ForgotPasswordPage = ({ navigateTo }) => {
             </p>
             <button
               onClick={() => navigateTo("login")}
-              className="w-full bg-[var(--color-black-canvas)] text-[var(--color-cream-canvas)] py-2 rounded-lg font-semibold hover:bg-[var(--color-black-canvas)]/90 transition-all duration-200 shadow-md hover:shadow-lg"
+              className="w-full bg-[var(--color-black-canvas)] text-[var(--color-cream-canvas)] py-2 rounded-lg font-semibold hover:bg-[var(--color-black-canvas)]/90 transition-all duration-200 shadow-md hover:shadow-lg cursor-pointer"
             >
               Back to Login
             </button>
@@ -112,7 +112,7 @@ export const ForgotPasswordPage = ({ navigateTo }) => {
         
         {/* Top Left Logo */}
         <div className="relative z-10 p-8">
-          <Link to="/" className="flex items-center space-x-3">
+          <Link to="/" className="flex items-center space-x-3 cursor-pointer">
             <img src="/images/Logo.png" alt="Properhaze Logo" className="h-12 w-auto" />
           </Link>
         </div>
@@ -178,7 +178,7 @@ export const ForgotPasswordPage = ({ navigateTo }) => {
                 <button
                   type="submit"
                   disabled={isLoading || isSubmitting}
-                  className="w-full bg-[var(--color-black-canvas)] text-[var(--color-cream-canvas)] py-2 rounded-lg font-semibold hover:bg-[var(--color-black-canvas)]/90 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed shadow-md hover:shadow-lg flex items-center justify-center"
+                  className="w-full bg-[var(--color-black-canvas)] text-[var(--color-cream-canvas)] py-2 rounded-lg font-semibold hover:bg-[var(--color-black-canvas)]/90 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed shadow-md hover:shadow-lg flex items-center justify-center cursor-pointer"
                 >
                   {isLoading ? (
                     <Icon
@@ -197,7 +197,7 @@ export const ForgotPasswordPage = ({ navigateTo }) => {
             Remember your password?{" "}
             <button
               onClick={() => navigateTo("login")}
-              className="text-[var(--color-primary)] hover:text-[var(--color-primary)]/80 font-semibold focus:outline-none"
+              className="text-[var(--color-primary)] hover:text-[var(--color-primary)]/80 font-semibold focus:outline-none cursor-pointer"
             >
               Login
             </button>

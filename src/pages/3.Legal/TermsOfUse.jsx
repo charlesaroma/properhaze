@@ -111,9 +111,9 @@ const TermsOfUse = () => {
   return (
     <div className="min-h-screen bg-[var(--color-cream-canvas)]">
       {/* Navigation */}
-      <div className="bg-[var(--color-black-canvas)]">
-        <Navbar isAuthenticated={false} onLogout={() => {}} />
-      </div>
+                       <div>
+                   <Navbar isAuthenticated={false} onLogout={() => {}} customLogo="/images/Logo1.png" disableScrollBg={true} />
+                 </div>
       
       {/* Main Content */}
       <div className="pt-4 sm:pt-6 md:pt-8 pb-6 sm:pb-8">
@@ -170,12 +170,14 @@ const TermsOfUse = () => {
                         {info.type === 'email' ? (
                           <a 
                             href={`mailto:${info.value}`} 
-                            className="text-[var(--color-link)] hover:underline"
+                            className="inline-block px-4 py-2 bg-[var(--color-black-canvas)] text-[var(--color-cream-canvas)] rounded-lg hover:bg-[var(--color-black-canvas)]/90 transition-all duration-200 cursor-pointer border border-[var(--color-black-canvas)]"
                           >
                             {info.value}
                           </a>
                         ) : (
-                          info.value
+                          <span className="inline-block px-4 py-2 bg-[var(--color-black-canvas)] text-[var(--color-cream-canvas)] rounded-lg border border-[var(--color-black-canvas)]">
+                            {info.value}
+                          </span>
                         )}
                       </p>
                     ))}
@@ -188,7 +190,7 @@ const TermsOfUse = () => {
       </div>
       
       {/* Footer */}
-      <div className="bg-[var(--color-black-canvas)]">
+      <div>
         <Footer />
       </div>
     </div>
