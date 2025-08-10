@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Navbar from './components/Navbar';
-import LandingPage from './pages/LandingPage/LandingPage';
-import LoginPage from './pages/Auth/LoginPage';
-import SignupPage from './pages/Auth/SignupPage';
-import ForgotPasswordPage from './pages/Auth/ForgotPasswordPage';
-import DashboardPage from './pages/DashboardPage';
-import ProfilePage from './pages/ProfilePage';
-import ConfettiHistory from './pages/ConfettiHistory';
-import PrivacyStatement from './pages/PrivacyStatement';
-import TermsOfUse from './pages/TermsOfUse';
-import Footer from './components/Footer';
-import SettingsPage from './pages/SettingsPage';
+import Navbar from './components/Navigation/Navbar';
+import LandingPage from './pages/1.LandingPage/LandingPage';
+import LoginPage from './pages/0.auth/LoginPage';
+import SignupPage from './pages/0.auth/SignupPage';
+import ForgotPasswordPage from './pages/0.auth/ForgotPasswordPage';
+import DashboardHome from './pages/2.dashboard/1.Home/DashboardHome';
+import MyProfile from './pages/2.dashboard/2.Profile/MyProfile';    
+import Confetti from './pages/2.dashboard/3.Confetti/Confetti';
+import PrivacyStatement from './pages/3.Legal/PrivacyStatement';
+import TermsOfUse from './pages/3.Legal/TermsOfUse';
+import Footer from './components/Navigation/Footer';
+import Settings from './pages/2.dashboard/5.Settings/0.Settings';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -40,7 +40,7 @@ function App() {
           <Route path="/settings" element={
             <div>
               <Navbar isAuthenticated={isAuthenticated} onLogout={handleLogout} />
-              <SettingsPage />
+              <Settings />
               <Footer />
             </div>
           } />
@@ -70,7 +70,7 @@ function App() {
           <Route path="/dashboard" element={
             <div>
               <Navbar isAuthenticated={isAuthenticated} onLogout={handleLogout} />
-              <DashboardPage />
+              <DashboardHome />
               <Footer />
             </div>
           } />
@@ -78,7 +78,7 @@ function App() {
           <Route path="/profile" element={
             <div>
               <Navbar isAuthenticated={isAuthenticated} onLogout={handleLogout} />
-              <ProfilePage />
+              <MyProfile />
               <Footer />
             </div>
           } />
@@ -86,7 +86,7 @@ function App() {
           <Route path="/confetti" element={
             <div>
               <Navbar isAuthenticated={isAuthenticated} onLogout={handleLogout} />
-              <ConfettiHistory />
+              <Confetti />
               <Footer />
             </div>
           } />

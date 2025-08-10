@@ -55,7 +55,7 @@ const Navbar = ({ isAuthenticated, onLogout }) => {
         <div className="flex items-center justify-between h-20">
           {/* Logo - Always visible */}
           <Link to="/" className="flex items-center space-x-3" onClick={closeMobileMenu}>
-            <img src="/Logo.png" alt="Properhaze Logo" className="h-12 w-auto" />
+            <img src="/images/Logo.png" alt="Properhaze Logo" className="h-12 w-auto" />
           </Link>
 
           {/* Desktop Navigation - Only show when authenticated */}

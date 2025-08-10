@@ -104,7 +104,7 @@ export const ForgotPasswordPage = ({ navigateTo }) => {
         {/* Logo Outline positioned absolutely behind everything */}
         <div className="absolute inset-0 flex items-center justify-center">
           <img 
-            src="/logo-outline.png" 
+            src="/images/logo-outline.png" 
             alt="Logo Outline" 
             className="w-full h-full object-contain"
           />
@@ -113,7 +113,7 @@ export const ForgotPasswordPage = ({ navigateTo }) => {
         {/* Top Left Logo */}
         <div className="relative z-10 p-8">
           <Link to="/" className="flex items-center space-x-3">
-            <img src="/Logo.png" alt="Properhaze Logo" className="h-12 w-auto" />
+            <img src="/images/Logo.png" alt="Properhaze Logo" className="h-12 w-auto" />
           </Link>
         </div>
         
@@ -121,7 +121,7 @@ export const ForgotPasswordPage = ({ navigateTo }) => {
         <div className="absolute -bottom-18 left-0 right-0 flex items-center justify-center z-5">
           <div className="relative max-w-full h-full">
             <img
-              src="/nachristos.png"
+              src="/images/nachristos.png"
               alt="Forgot password image"
               className="w-full h-full object-cover rounded-t-2xl shadow-2xl"
               onError={(e) => {

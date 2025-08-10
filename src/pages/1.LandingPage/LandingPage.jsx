@@ -7,7 +7,7 @@ const LandingPage = () => {
     <div 
       className="pt-20 min-h-screen relative"
       style={{
-        backgroundImage: 'url(/BG.png)',
+        backgroundImage: 'url(/images/BG.png)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat'

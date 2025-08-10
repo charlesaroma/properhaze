@@ -85,7 +85,7 @@ const EventsCarousel = () => {
     slidesToShow: slidesToShow,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 4000,
+    autoplaySpeed: 2500,
     pauseOnHover: false,
     arrows: false,
     swipe: true,

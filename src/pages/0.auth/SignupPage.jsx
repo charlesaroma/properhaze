@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Icon } from "@iconify/react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 // Validation schema
 const SignupSchema = Yup.object().shape({
@@ -28,6 +28,7 @@ export const SignupPage = ({ navigateTo }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const navigate = useNavigate();
 
   const handleSubmit = async (values, { setSubmitting }) => {
     setIsLoading(true);
@@ -50,7 +51,7 @@ export const SignupPage = ({ navigateTo }) => {
         {/* Logo Outline positioned absolutely behind everything */}
         <div className="absolute inset-0 flex items-center justify-center">
           <img 
-            src="/logo-outline.png" 
+            src="/images/logo-outline.png" 
             alt="Logo Outline" 
             className="w-full h-full object-contain"
           />
@@ -59,7 +60,7 @@ export const SignupPage = ({ navigateTo }) => {
         {/* Top Left Logo */}
         <div className="relative z-10 p-8">
           <Link to="/" className="flex items-center space-x-3">
-            <img src="/Logo.png" alt="Properhaze Logo" className="h-12 w-auto" />
+            <img src="/images/Logo.png" alt="Properhaze Logo" className="h-12 w-auto" />
           </Link>
         </div>
         
@@ -67,7 +68,7 @@ export const SignupPage = ({ navigateTo }) => {
         <div className="absolute -bottom-18 left-0 right-0 flex items-center justify-center z-5">
           <div className="relative max-w-full h-full">
             <img
-              src="/van.png"
+              src="/images/van.png"
               alt="Van image"
               className="w-full h-full object-cover rounded-t-2xl shadow-2xl"
               onError={(e) => {
@@ -111,7 +112,7 @@ export const SignupPage = ({ navigateTo }) => {
                 id="full-name"
                 type="text"
                 name="fullName"
-                placeholder="Robin Inzama"
+                placeholder=""
                     className={`w-full px-3 py-2 border border-[var(--color-border)]/20 rounded-lg focus:ring-2 focus:ring-[var(--color-primary)] focus:border-[var(--color-primary)] transition-all duration-200 bg-white text-[var(--color-black-canvas)] placeholder-[var(--color-placeholder)] ${
                       errors.fullName && touched.fullName ? "border-[var(--color-error)]" : ""
                     }`}
@@ -134,7 +135,7 @@ export const SignupPage = ({ navigateTo }) => {
                 id="email-signup"
                 type="email"
                 name="email"
-                placeholder="myname@email.com"
+                placeholder=""
                     className={`w-full px-3 py-2 border border-[var(--color-border)]/20 rounded-lg focus:ring-2 focus:ring-[var(--color-primary)] focus:border-[var(--color-primary)] transition-all duration-200 bg-white text-[var(--color-black-canvas)] placeholder-[var(--color-placeholder)] ${
                       errors.email && touched.email ? "border-[var(--color-error)]" : ""
                     }`}
@@ -157,7 +158,7 @@ export const SignupPage = ({ navigateTo }) => {
                 id="phone-number"
                 type="tel"
                 name="phoneNumber"
-                placeholder="+254 71 000 000"
+                placeholder=""
                     className={`w-full px-3 py-2 border border-[var(--color-border)]/20 rounded-lg focus:ring-2 focus:ring-[var(--color-primary)] focus:border-[var(--color-primary)] transition-all duration-200 bg-white text-[var(--color-black-canvas)] placeholder-[var(--color-placeholder)] ${
                       errors.phoneNumber && touched.phoneNumber ? "border-[var(--color-error)]" : ""
                     }`}
@@ -181,7 +182,7 @@ export const SignupPage = ({ navigateTo }) => {
                   id="create-password"
                       type={showPassword ? "text" : "password"}
                   name="password"
-                  placeholder="mypassword"
+                  placeholder=""
                       className={`w-full px-3 py-2 border border-[var(--color-border)]/20 rounded-lg focus:ring-2 focus:ring-[var(--color-primary)] focus:border-[var(--color-primary)] transition-all duration-200 bg-white text-[var(--color-black-canvas)] placeholder-[var(--color-placeholder)] pr-12 ${
                         errors.password && touched.password ? "border-[var(--color-error)]" : ""
                   }`}
@@ -216,8 +217,8 @@ export const SignupPage = ({ navigateTo }) => {
                   id="confirm-password"
                       type={showConfirmPassword ? "text" : "password"}
                   name="confirmPassword"
-                  placeholder="mypassword"
-                      className={`w-full px-3 py-2 border border-[var(--color-border)]/20 rounded-lg focus:ring-2 focus:ring-[var(--color-primary)] focus:border-[var(--color-primary)] transition-all duration-200 bg-white text-[var(--color-black-canvas)] placeholder-[var(--color-placeholder)] pr-12 ${
+                  placeholder=""
+                      className={`w-full px-3 py-2 border border-[var(--color-border)]/20 rounded-lg focus:ring-2 focus:ring-[var(--color-primary)] focus:border-[var(--color-border)] transition-all duration-200 bg-white text-[var(--color-black-canvas)] placeholder-[var(--color-placeholder)] pr-12 ${
                         errors.confirmPassword && touched.confirmPassword
                           ? "border-[var(--color-error)]"
                           : "border-[var(--color-border)]"
@@ -261,7 +262,7 @@ export const SignupPage = ({ navigateTo }) => {
                 Accept the{" "}
                 <button
                       type="button"
-                  onClick={() => alert("Navigating to Terms of Use (mock)")}
+                  onClick={() => navigate("/terms")}
                       className="text-[var(--color-primary)] hover:text-[var(--color-primary)]/80 focus:outline-none"
                 >
                   Terms of use
@@ -271,7 +272,7 @@ export const SignupPage = ({ navigateTo }) => {
                 Accept the{" "}
                 <button
                       type="button"
-                  onClick={() => alert("Navigating to Privacy Policy (mock)")}
+                  onClick={() => navigate("/privacy")}
                       className="text-[var(--color-primary)] hover:text-[var(--color-primary)]/80 focus:outline-none"
                 >
                   Privacy policy
