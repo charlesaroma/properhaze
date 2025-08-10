@@ -90,7 +90,7 @@ const HeroSection = () => {
         </div>
 
         {/* Description */}
-        <p className="text-[13.5px] text-[var(--color-cream-canvas)]/60 font-light text-placeholder max-w-xl mx-auto pt-5">
+        <p className="text-[13.5px] text-[var(--color-cream-canvas)]/60 text-placeholder max-w-xl mx-auto pt-5">
           Press buzzer button and dispatch a burst of confetti to surprise and delight your chosen recipient.
         </p>
       </div>

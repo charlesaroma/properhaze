@@ -34,12 +34,12 @@ export const LoginPage = ({ navigateTo }) => {
   return (
     <div className="h-screen flex font-sans overflow-hidden">
       {/* Left Side - Visual Section with Logo, Background, and Images */}
-      <div className="hidden md:block w-full max-w-[375px] relative overflow-hidden bg-gradient-to-b from-[#11316b] to-[#1f2937]">
+      <div className="hidden md:block w-full max-w-[375px] relative overflow-hidden">
         {/* Glass.png background overlay */}
-        <div className="absolute inset-0 bg-black/20"></div>
+        <div className="absolute inset-0 bg-[url('/Glass.png')] bg-cover bg-center bg-no-repeat"></div>
         
         {/* Logo Outline positioned absolutely behind everything */}
-        <div className="absolute inset-0 flex items-center justify-center opacity-10">
+        <div className="absolute inset-0 flex items-center justify-center">
           <img 
             src="/logo-outline.png" 
             alt="Logo Outline" 
@@ -54,13 +54,13 @@ export const LoginPage = ({ navigateTo }) => {
           </Link>
         </div>
         
-        {/* Kweba.png image positioned in the center */}
-        <div className="absolute inset-0 flex items-center justify-center p-8 z-5">
-          <div className="relative w-full h-full">
+        {/* Kweba.png image positioned at the bottom */}
+        <div className="absolute -bottom-18 left-0 right-0 flex items-center justify-center z-5">
+          <div className="relative max-w-full h-full">
             <img
               src="/kweba.png"
               alt="Happy people"
-              className="w-full h-full object-cover rounded-2xl shadow-2xl"
+              className="w-full h-full object-cover rounded-t-2xl shadow-2xl"
               onError={(e) => {
                 e.target.onerror = null;
                 e.target.src = "https://placehold.co/320x320/667EEA/ffffff?text=Kweba+Image";

@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
-    <footer className="bg-transparent border-t border-[var(--color-border)]/20">
-      <div className="container mx-auto px-6 py-8">
+    <footer className="bg-transparent border-t border-[var(--color-border)]/20 min-h-14">
+      <div className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
           {/* Copyright */}
           <div className="text-[var(--color-placeholder)] text-sm">
