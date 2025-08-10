@@ -4,7 +4,7 @@
 @layer base {
   :root {
     /* Semantic Colors - Controls */
-    --color-base: #ffffff;
+    --color-base: #f8fafc; /* Soft off-white instead of pure white */
     --color-error: #ef4444;
     --color-alert: #f97316;
     --color-info: #3b82f6;
@@ -17,15 +17,15 @@
     --color-semantic-content-error: #B91C1C;
 
     /* Additional Controls */
-    --color-hover: #f3f4f6;
+    --color-hover: #e2e8f0; /* Softer gray instead of f3f4f6 */
     --color-on-focus: #dbeafe;
     --color-on-contrast: #1f2937;
-    --color-border: #e5e7eb;
+    --color-border: #475569; /* Medium gray instead of e5e7eb */
     --color-link: #2563eb;
 
     /* Semantic Surface */
     --color-black-canvas: #05141D;
-    --color-cream-canvas: #f9fafb;
+    --color-cream-canvas: #f1f5f9; /* Softer cream instead of f9fafb */
 
     /* App Specific Colors */
     --color-primary: #1e40af;

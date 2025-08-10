@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Icon } from "@iconify/react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
+import { Link } from "react-router-dom";
 
 // Validation schema
 const SignupSchema = Yup.object().shape({
@@ -25,6 +26,8 @@ const SignupSchema = Yup.object().shape({
 // Signup Page Component
 export const SignupPage = ({ navigateTo }) => {
   const [isLoading, setIsLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   const handleSubmit = async (values, { setSubmitting }) => {
     setIsLoading(true);
@@ -38,48 +41,49 @@ export const SignupPage = ({ navigateTo }) => {
   };
 
   return (
-    <div className="min-h-screen flex font-sans">
+    <div className="h-screen flex font-sans overflow-hidden">
       {/* Left Side - Visual Section with Logo, Background, and Images */}
-      <div className="flex-1 relative overflow-hidden bg-gradient-to-b from-[#11316b] to-[#1f2937]">
+      <div className="hidden md:block w-full max-w-[375px] relative overflow-hidden bg-gradient-to-b from-[#11316b] to-[#1f2937]">
         {/* Glass.png background overlay */}
         <div className="absolute inset-0 bg-black/20"></div>
         
         {/* Logo Outline positioned absolutely behind everything */}
         <div className="absolute inset-0 flex items-center justify-center opacity-10">
-          <div className="w-96 h-96 rounded-full border-4 border-white/20"></div>
+          <img 
+            src="/logo-outline.png" 
+            alt="Logo Outline" 
+            className="w-full h-full object-contain"
+          />
         </div>
         
         {/* Top Left Logo */}
         <div className="relative z-10 p-8">
-          <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center backdrop-blur-sm">
-              <Icon icon="mdi:dots-grid" className="w-6 h-6 text-white" />
-            </div>
-            <span className="text-xl font-bold text-white">Properhaze</span>
-          </div>
+          <Link to="/" className="flex items-center space-x-3">
+            <img src="/Logo.png" alt="Properhaze Logo" className="h-12 w-auto" />
+          </Link>
         </div>
         
         {/* Van.png image positioned in the center */}
-        <div className="absolute inset-0 flex items-center justify-center p-8">
-          <div className="relative w-80 h-80">
+        <div className="absolute inset-0 flex items-center justify-center p-8 z-5">
+          <div className="relative w-full h-full">
             <img
               src="/van.png"
               alt="Van image"
               className="w-full h-full object-cover rounded-2xl shadow-2xl"
-            onError={(e) => {
-              e.target.onerror = null;
+              onError={(e) => {
+                e.target.onerror = null;
                 e.target.src = "https://placehold.co/320x320/667EEA/ffffff?text=Van+Image";
-            }}
-          />
-        </div>
+              }}
+            />
+          </div>
         </div>
       </div>
 
       {/* Right Side - Signup Form */}
-      <div className="flex-1 flex items-center justify-center p-8 bg-[var(--color-cream-canvas)] md:p-12 lg:p-16">
+      <div className="flex-1 flex items-center justify-center p-4 md:p-6 lg:p-8 bg-[var(--color-cream-canvas)] overflow-y-auto overflow-x-hidden">
         <div className="w-full max-w-md">
-          <h2 className="text-3xl font-bold text-[var(--color-black-canvas)] mb-2">Sign Up</h2>
-          <p className="text-[var(--color-placeholder)] mb-8">
+          <h2 className="text-xl md:text-2xl font-bold text-[var(--color-black-canvas)] mb-1 md:mb-2">Sign Up</h2>
+          <p className="text-[var(--color-placeholder)] mb-4 md:mb-6 text-sm">
             Create a Properhaze account below
           </p>
 
@@ -95,11 +99,11 @@ export const SignupPage = ({ navigateTo }) => {
             onSubmit={handleSubmit}
           >
             {({ errors, touched, isSubmitting }) => (
-              <Form className="space-y-6">
+              <Form className="space-y-3 md:space-y-4">
             <div>
               <label
                 htmlFor="full-name"
-                    className="block text-sm font-medium text-[var(--color-black-canvas)] mb-2"
+                    className="block text-sm font-medium text-[var(--color-black-canvas)] mb-1"
               >
                 Full name
               </label>
@@ -108,21 +112,21 @@ export const SignupPage = ({ navigateTo }) => {
                 type="text"
                 name="fullName"
                 placeholder="Robin Inzama"
-                    className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-[var(--color-primary)] focus:border-[var(--color-primary)] transition-all duration-200 bg-white text-[var(--color-black-canvas)] placeholder-[var(--color-placeholder)] ${
-                      errors.fullName && touched.fullName ? "border-[var(--color-error)]" : "border-[var(--color-border)]"
+                    className={`w-full px-3 py-2 border border-[var(--color-border)]/20 rounded-lg focus:ring-2 focus:ring-[var(--color-primary)] focus:border-[var(--color-primary)] transition-all duration-200 bg-white text-[var(--color-black-canvas)] placeholder-[var(--color-placeholder)] ${
+                      errors.fullName && touched.fullName ? "border-[var(--color-error)]" : ""
                     }`}
                   />
                   <ErrorMessage
                     name="fullName"
                     component="p"
-                    className="text-[var(--color-error)] text-sm mt-1"
+                    className="text-[var(--color-error)] text-xs mt-1"
                   />
             </div>
 
             <div>
               <label
                 htmlFor="email-signup"
-                    className="block text-sm font-medium text-[var(--color-black-canvas)] mb-2"
+                    className="block text-sm font-medium text-[var(--color-black-canvas)] mb-1"
               >
                 Email
               </label>
@@ -131,21 +135,21 @@ export const SignupPage = ({ navigateTo }) => {
                 type="email"
                 name="email"
                 placeholder="myname@email.com"
-                    className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-[var(--color-primary)] focus:border-[var(--color-primary)] transition-all duration-200 bg-white text-[var(--color-black-canvas)] placeholder-[var(--color-placeholder)] ${
-                      errors.email && touched.email ? "border-[var(--color-error)]" : "border-[var(--color-border)]"
+                    className={`w-full px-3 py-2 border border-[var(--color-border)]/20 rounded-lg focus:ring-2 focus:ring-[var(--color-primary)] focus:border-[var(--color-primary)] transition-all duration-200 bg-white text-[var(--color-black-canvas)] placeholder-[var(--color-placeholder)] ${
+                      errors.email && touched.email ? "border-[var(--color-error)]" : ""
                     }`}
                   />
                   <ErrorMessage
                     name="email"
                     component="p"
-                    className="text-[var(--color-error)] text-sm mt-1"
+                    className="text-[var(--color-error)] text-xs mt-1"
                   />
             </div>
 
             <div>
               <label
                 htmlFor="phone-number"
-                    className="block text-sm font-medium text-[var(--color-black-canvas)] mb-2"
+                    className="block text-sm font-medium text-[var(--color-black-canvas)] mb-1"
               >
                 Phone number
               </label>
@@ -154,69 +158,66 @@ export const SignupPage = ({ navigateTo }) => {
                 type="tel"
                 name="phoneNumber"
                 placeholder="+254 71 000 000"
-                    className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-[var(--color-primary)] focus:border-[var(--color-primary)] transition-all duration-200 bg-white text-[var(--color-black-canvas)] placeholder-[var(--color-placeholder)] ${
-                      errors.phoneNumber && touched.phoneNumber ? "border-[var(--color-error)]" : "border-[var(--color-border)]"
+                    className={`w-full px-3 py-2 border border-[var(--color-border)]/20 rounded-lg focus:ring-2 focus:ring-[var(--color-primary)] focus:border-[var(--color-primary)] transition-all duration-200 bg-white text-[var(--color-black-canvas)] placeholder-[var(--color-placeholder)] ${
+                      errors.phoneNumber && touched.phoneNumber ? "border-[var(--color-error)]" : ""
                     }`}
                   />
                   <ErrorMessage
                     name="phoneNumber"
                     component="p"
-                    className="text-[var(--color-error)] text-sm mt-1"
+                    className="text-[var(--color-error)] text-xs mt-1"
                   />
             </div>
 
             <div>
               <label
                 htmlFor="create-password"
-                    className="block text-sm font-medium text-[var(--color-black-canvas)] mb-2"
+                    className="block text-sm font-medium text-[var(--color-black-canvas)] mb-1"
               >
                 Create Password
               </label>
               <div className="relative">
                     <Field
                   id="create-password"
-                      type="password"
+                      type={showPassword ? "text" : "password"}
                   name="password"
                   placeholder="mypassword"
-                      className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-[var(--color-primary)] focus:border-[var(--color-primary)] transition-all duration-200 bg-white text-[var(--color-black-canvas)] placeholder-[var(--color-placeholder)] pr-12 ${
-                        errors.password && touched.password ? "border-[var(--color-error)]" : "border-[var(--color-border)]"
+                      className={`w-full px-3 py-2 border border-[var(--color-border)]/20 rounded-lg focus:ring-2 focus:ring-[var(--color-primary)] focus:border-[var(--color-primary)] transition-all duration-200 bg-white text-[var(--color-black-canvas)] placeholder-[var(--color-placeholder)] pr-12 ${
+                        errors.password && touched.password ? "border-[var(--color-error)]" : ""
                   }`}
                 />
                 <button
                   type="button"
-                      onClick={() => {
-                        const input = document.getElementById('create-password');
-                        input.type = input.type === 'password' ? 'text' : 'password';
-                      }}
+                      onClick={() => setShowPassword(!showPassword)}
                       className="absolute right-3 top-1/2 transform -translate-y-1/2 text-[var(--color-placeholder)] hover:text-[var(--color-black-canvas)] focus:outline-none"
                 >
                   <Icon
-                        icon="mdi:eye"
-                    className="w-5 h-5"
+                        icon={showPassword ? "mdi:eye-off" : "mdi:eye"}
+                    className="w-4 h-4"
                   />
                 </button>
               </div>
                   <ErrorMessage
                     name="password"
                     component="p"
-                    className="text-[var(--color-error)] text-sm mt-1"
+                    className="text-[var(--color-error)] text-xs mt-1"
                   />
             </div>
 
             <div>
               <label
                 htmlFor="confirm-password"
-                    className="block text-sm font-medium text-[var(--color-black-canvas)] mb-2"
+                    className="block text-sm font-medium text-[var(--color-black-canvas)] mb-1"
               >
                 Confirm password
               </label>
               <div className="relative">
                     <Field
                   id="confirm-password"
-                      type="password"
+                      type={showConfirmPassword ? "text" : "password"}
                   name="confirmPassword"
                   placeholder="mypassword"
-                      className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-[var(--color-primary)] focus:border-[var(--color-primary)] transition-all duration-200 bg-white text-[var(--color-black-canvas)] placeholder-[var(--color-placeholder)] pr-12 ${
+                      className={`w-full px-3 py-2 border border-[var(--color-border)]/20 rounded-lg focus:ring-2 focus:ring-[var(--color-primary)] focus:border-[var(--color-primary)] transition-all duration-200 bg-white text-[var(--color-black-canvas)] placeholder-[var(--color-placeholder)] pr-12 ${
                         errors.confirmPassword && touched.confirmPassword
                           ? "border-[var(--color-error)]"
                           : "border-[var(--color-border)]"
@@ -224,41 +225,38 @@ export const SignupPage = ({ navigateTo }) => {
                 />
                 <button
                   type="button"
-                      onClick={() => {
-                        const input = document.getElementById('confirm-password');
-                        input.type = input.type === 'password' ? 'text' : 'password';
-                      }}
+                      onClick={() => setShowConfirmPassword(!showConfirmPassword)}
                       className="absolute right-3 top-1/2 transform -translate-y-1/2 text-[var(--color-placeholder)] hover:text-[var(--color-black-canvas)] focus:outline-none"
                 >
                   <Icon
-                        icon="mdi:eye"
-                    className="w-5 h-5"
+                        icon={showConfirmPassword ? "mdi:eye-off" : "mdi:eye"}
+                    className="w-4 h-4"
                   />
                 </button>
               </div>
                   <ErrorMessage
                     name="confirmPassword"
                     component="p"
-                    className="text-[var(--color-error)] text-sm mt-1"
+                    className="text-[var(--color-error)] text-xs mt-1"
                   />
             </div>
 
             <button
               type="submit"
                   disabled={isLoading || isSubmitting}
-                  className="w-full bg-[var(--color-black-canvas)] text-[var(--color-cream-canvas)] py-3 rounded-lg font-semibold hover:bg-[var(--color-black-canvas)]/90 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed shadow-md hover:shadow-lg flex items-center justify-center"
+                  className="w-full bg-[var(--color-black-canvas)] text-[var(--color-cream-canvas)] py-2 rounded-lg font-semibold hover:bg-[var(--color-black-canvas)]/90 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed shadow-md hover:shadow-lg flex items-center justify-center"
             >
               {isLoading ? (
                 <Icon
                   icon="mdi:loading"
-                  className="w-5 h-5 animate-spin mr-2"
+                  className="w-4 h-4 animate-spin mr-2"
                 />
               ) : (
                 "Sign Up"
               )}
             </button>
 
-                <div className="text-center text-sm text-[var(--color-placeholder)] space-y-2">
+                <div className="text-center text-xs text-[var(--color-placeholder)] space-y-1">
               <p>
                 Accept the{" "}
                 <button
