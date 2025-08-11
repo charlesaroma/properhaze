@@ -104,9 +104,25 @@ function App() {
             </div>
           } />
           
-          {/* Legal pages */}
-          <Route path="/privacy" element={<PrivacyStatement />} />
-          <Route path="/terms" element={<TermsOfUse />} />
+          {/* Legal pages with navbar and footer */}
+          <Route path="/privacy" element={
+            <div>
+              <div className="fixed top-0 left-0 right-0 z-40 bg-[var(--color-black-canvas)] shadow-lg">
+                <Navbar isAuthenticated={isAuthenticated} onLogout={handleLogout} />
+              </div>
+              <PrivacyStatement />
+              <Footer />
+            </div>
+          } />
+          <Route path="/terms" element={
+            <div>
+              <div className="fixed top-0 left-0 right-0 z-40 bg-[var(--color-black-canvas)] shadow-lg">
+                <Navbar isAuthenticated={isAuthenticated} onLogout={handleLogout} />
+              </div>
+              <TermsOfUse />
+              <Footer />
+            </div>
+          } />
         </Routes>
       </div>
     </Router>

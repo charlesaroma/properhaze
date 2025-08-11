@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Icon } from '@iconify/react';
 
-const Navbar = ({ isAuthenticated, onLogout }) => {
+const Navbar = ({ isAuthenticated, onLogout, disableScrollBg = false }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
@@ -22,13 +22,18 @@ const Navbar = ({ isAuthenticated, onLogout }) => {
   ];
 
   useEffect(() => {
+    if (disableScrollBg) {
+      setIsScrolled(false);
+      return;
+    }
+    
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [disableScrollBg]);
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -46,9 +51,11 @@ const Navbar = ({ isAuthenticated, onLogout }) => {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out ${
-        isScrolled
-          ? 'bg-[var(--color-black-canvas)]/80 backdrop-blur-xl shadow-lg'
-          : 'bg-transparent'
+        disableScrollBg 
+          ? 'bg-transparent' 
+          : isScrolled
+            ? 'bg-[var(--color-black-canvas)]/80 backdrop-blur-xl shadow-lg'
+            : 'bg-transparent'
       }`}
     >
       <div className="container mx-auto px-6">

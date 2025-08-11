@@ -1,6 +1,4 @@
 import React from 'react';
-import Navbar from '../../components/Navigation/Navbar';
-import Footer from '../../components/Navigation/Footer';
 
 const TermsOfUse = () => {
   {/* Terms of Use sections data */}
@@ -109,29 +107,24 @@ const TermsOfUse = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-[var(--color-cream-canvas)]">
-      {/* Navigation */}
-                       <div>
-                   <Navbar isAuthenticated={false} onLogout={() => {}} customLogo="/images/Logo1.png" disableScrollBg={true} />
-                 </div>
-      
+    <div className="min-h-screen bg-[var(--color-black-canvas)]">
       {/* Main Content */}
-      <div className="pt-4 sm:pt-6 md:pt-8 pb-6 sm:pb-8">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="pt-20 sm:pt-24 md:pt-28 pb-6 sm:pb-8">
+        <div className="max-w-2xl ml-8 sm:ml-12 lg:ml-16 px-4 sm:px-6 lg:px-8">
           
           {/* Page Header */}
-          <div className="text-center mb-8 sm:mb-10 md:mb-12">
-            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[var(--color-black-canvas)] mb-3 sm:mb-4">
+          <div className="mb-8 sm:mb-10 md:mb-12">
+            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-[var(--color-cream-canvas)] mb-3 sm:mb-4 text-justify">
               Terms of Use
             </h1>
-            <p className="text-base sm:text-lg text-[var(--color-placeholder)]">
+            <p className="text-sm sm:text-base text-[var(--color-placeholder)] mb-3 sm:mb-4 text-justify">
               Effective Date: [Insert Date]
             </p>
           </div>
           
           {/* Introduction */}
           <div className="mb-8 sm:mb-10 md:mb-12">
-            <p className="text-base sm:text-lg text-[var(--color-on-contrast)] leading-relaxed">
+            <p className="text-xs sm:text-sm text-[var(--color-cream-canvas)] leading-relaxed text-justify">
               Welcome to Properhaze. By accessing or using our platform, you agree to comply with and be bound by these Terms of Use. Please read them carefully. If you do not agree to these terms, you must discontinue use of our platform.
             </p>
           </div>
@@ -141,20 +134,20 @@ const TermsOfUse = () => {
             {termsSections.map((section) => (
               <section key={section.id} className="mb-6 sm:mb-8">
                 {/* Section Title */}
-                <h2 className="text-xl sm:text-2xl font-bold text-[var(--color-link)] mb-3 sm:mb-4">
+                <h2 className="text-lg sm:text-xl font-bold text-[var(--color-link)] mb-3 sm:mb-4 text-justify">
                   {section.id}. {section.title}
                 </h2>
                 
                 {/* Section Content */}
                 {section.content && (
-                  <p className="text-sm sm:text-base text-[var(--color-on-contrast)] mb-3 sm:mb-4">
+                  <p className="text-xs sm:text-sm text-[var(--color-cream-canvas)] mb-3 sm:mb-4 text-justify">
                     {section.content}
                   </p>
                 )}
                 
                 {/* Section List Items */}
                 {section.listItems && (
-                  <ul className="list-disc pl-4 sm:pl-6 space-y-1 sm:space-y-2 text-sm sm:text-base text-[var(--color-on-contrast)]">
+                  <ul className="list-disc pl-4 sm:pl-6 space-y-1 sm:space-y-2 text-xs sm:text-sm text-[var(--color-cream-canvas)] text-justify">
                     {section.listItems.map((item, index) => (
                       <li key={index}>{item}</li>
                     ))}
@@ -163,9 +156,9 @@ const TermsOfUse = () => {
                 
                 {/* Contact Information */}
                 {section.contactInfo && (
-                  <div className="space-y-1 sm:space-y-2 text-sm sm:text-base text-[var(--color-on-contrast)]">
+                  <div className="space-y-1 sm:space-y-2 text-xs sm:text-sm text-[var(--color-cream-canvas)] text-justify">
                     {section.contactInfo.map((info, index) => (
-                      <p key={index}>
+                      <p key={index} className="text-justify">
                         <strong>{info.label}:</strong>{' '}
                         {info.type === 'email' ? (
                           <a 
@@ -189,10 +182,6 @@ const TermsOfUse = () => {
         </div>
       </div>
       
-      {/* Footer */}
-      <div>
-        <Footer />
-      </div>
     </div>
   );
 };
