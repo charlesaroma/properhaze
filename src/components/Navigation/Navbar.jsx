@@ -11,12 +11,12 @@ const Navbar = ({ isAuthenticated, onLogout, disableScrollBg = false }) => {
 
   // Navigation Configuration
   const authenticatedMenuItems = [
-    { path: '/dashboard', label: 'Home' },
-    { path: '/profile', label: 'My Profile' },
-    { path: '/confetti', label: 'Confetti' },
-    { path: '/wallet', label: 'Wallet' },
+    { path: '/dashboard', label: 'Home', icon: 'mdi:home' },
+    { path: '/profile', label: 'My Profile', icon: 'mdi:account' },
+    { path: '/confetti', label: 'Confetti', icon: 'mdi:circle-outline' },
+    { path: '/wallet', label: 'Wallet', icon: 'mdi:wallet' },
     { path: '/settings', label: 'Settings', icon: 'mdi:cog' },
-    { path: '/about', label: 'About', icon: 'mdi:information' },
+    { path: '/about', label: 'About Us', icon: 'mdi:open-in-new' },
     { path: '/privacy', label: 'Privacy Statement', icon: 'mdi:open-in-new' },
     { path: '/terms', label: 'Terms of Use', icon: 'mdi:open-in-new' },
     { path: null, label: 'Logout', icon: 'mdi:logout', action: 'logout' },
@@ -95,12 +95,10 @@ const Navbar = ({ isAuthenticated, onLogout, disableScrollBg = false }) => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out navbar ${
-        disableScrollBg 
-          ? 'bg-transparent' 
-          : isScrolled
-            ? 'navbar-scrolled'
-            : ''
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out ${
+        isScrolled 
+          ? 'bg-[var(--color-black-canvas)] backdrop-blur-xl border-b border-white/10 shadow-lg' 
+          : 'bg-transparent'
       }`}
     >
       <div className="container mx-auto px-6">
@@ -176,17 +174,25 @@ const Navbar = ({ isAuthenticated, onLogout, disableScrollBg = false }) => {
                 {isProfileDropdownOpen && (
                   <div className="absolute right-0 top-full mt-2 w-64 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-50 profile-dropdown">
                     <div className="px-4 py-3 border-b border-gray-100">
-                      <div className="flex items-center space-x-3">
-                        <div className="w-10 h-10 rounded-full bg-gray-400 overflow-hidden">
-                          <img 
-                            src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face" 
-                            alt="Profile" 
-                            className="w-full h-full object-cover"
-                          />
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center space-x-3">
+                          <div className="w-10 h-10 rounded-full bg-gray-400 overflow-hidden">
+                            <img 
+                              src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face" 
+                              alt="Profile" 
+                              className="w-full h-full object-cover"
+                            />
+                          </div>
+                          <div>
+                            <p className="text-sm font-semibold text-gray-900">Robin Inzama</p>
+                          </div>
                         </div>
-                        <div>
-                          <p className="text-sm font-medium text-gray-900">Robin Inzama</p>
-                        </div>
+                        <button
+                          onClick={toggleProfileDropdown}
+                          className="text-gray-400 hover:text-gray-600 transition-colors"
+                        >
+                          <Icon icon="mdi:close" className="w-4 h-4" />
+                        </button>
                       </div>
                     </div>
                     <div className="py-1">
@@ -195,7 +201,7 @@ const Navbar = ({ isAuthenticated, onLogout, disableScrollBg = false }) => {
                           <button
                             key={item.path || item.action}
                             onClick={handleLogout}
-                            className="w-full flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors duration-150"
+                            className="w-full flex items-center px-4 py-2 text-sm font-semibold text-gray-700 hover:bg-gray-100 transition-colors duration-150"
                           >
                             <Icon icon={item.icon} className="w-4 h-4 mr-3" />
                             {item.label}
@@ -204,7 +210,7 @@ const Navbar = ({ isAuthenticated, onLogout, disableScrollBg = false }) => {
                           <Link
                             key={item.path}
                             to={item.path}
-                            className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors duration-150"
+                            className="flex items-center px-4 py-2 text-sm font-semibold text-gray-700 hover:bg-gray-100 transition-colors duration-150"
                             onClick={closeMobileMenu}
                           >
                             <Icon icon={item.icon} className="w-4 h-4 mr-3" />
@@ -264,29 +270,56 @@ const Navbar = ({ isAuthenticated, onLogout, disableScrollBg = false }) => {
           <>
             {/* Authenticated User Menu */}
             {isAuthenticated && (
-              <div className="lg:hidden py-6 bg-[var(--color-black-canvas)]/90 backdrop-blur-xl shadow-2xl mobile-menu">
-                <div className="space-y-2">
+              <div className="lg:hidden absolute top-full left-0 right-0 mt-2 mx-6 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-50 mobile-menu">
+                {/* User Profile Header */}
+                <div className="px-4 py-3 border-b border-gray-100">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center space-x-3">
+                      <div className="w-10 h-10 rounded-full bg-gray-400 overflow-hidden">
+                        <img 
+                          src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face" 
+                          alt="Profile" 
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      <div>
+                        <p className="text-sm font-semibold text-gray-900">Robin Inzama</p>
+                      </div>
+                    </div>
+                    <button
+                      onClick={closeMobileMenu}
+                      className="text-gray-400 hover:text-gray-600 transition-colors"
+                    >
+                      <Icon icon="mdi:close" className="w-4 h-4" />
+                    </button>
+                  </div>
+                </div>
+                
+                {/* Navigation Items */}
+                <div className="py-1">
                   {allNavItems.map((item) => (
                     <Link
                       key={item.path}
                       to={item.path}
-                      className={`px-6 py-4 rounded-2xl transition-all duration-300 font-bold text-lg ${
+                      className={`flex items-center px-4 py-2 text-sm font-semibold transition-colors duration-150 ${
                         isNavItemActive(item.path)
-                          ? 'bg-[var(--color-primary)]/20 text-[var(--color-primary)] border border-[var(--color-primary)]/30'
-                          : 'text-[var(--color-cream-canvas)] hover:text-[var(--color-accent)] hover:bg-[var(--color-base)]/5'
+                          ? 'bg-gray-100 text-gray-900'
+                          : 'text-gray-700 hover:bg-gray-100'
                       }`}
                       onClick={closeMobileMenu}
                     >
-                      <span>{item.label}</span>
+                      <Icon icon={item.icon} className="w-4 h-4 mr-3" />
+                      {item.label}
                     </Link>
                   ))}
                   
                   {/* Logout Button */}
                   <button
                     onClick={handleLogout}
-                    className="w-full px-6 py-4 rounded-2xl bg-[var(--color-error)]/20 text-[var(--color-error)] border border-[var(--color-error)]/30 hover:bg-[var(--color-error)]/30 transition-all duration-300 font-bold text-lg"
+                    className="w-full flex items-center px-4 py-2 text-sm font-semibold text-gray-700 hover:bg-gray-100 transition-colors duration-150"
                   >
-                    <span>Logout</span>
+                    <Icon icon="mdi:logout" className="w-4 h-4 mr-3" />
+                    Logout
                   </button>
                 </div>
               </div>
@@ -294,20 +327,20 @@ const Navbar = ({ isAuthenticated, onLogout, disableScrollBg = false }) => {
 
             {/* Non-Authenticated User Menu */}
             {!isAuthenticated && (
-              <div className="lg:hidden absolute top-full left-0 right-0 mt-2 bg-[var(--color-black-canvas)]/90 backdrop-blur-xl shadow-2xl rounded-2xl mx-6 mobile-menu">
-                <div className="space-y-4 p-10">
+              <div className="lg:hidden absolute top-full left-0 right-0 mt-2 mx-6 bg-white rounded-lg shadow-xl border border-gray-200 py-4 z-50 mobile-menu">
+                <div className="space-y-3 px-4">
                   {authItems.map((item) => (
                     <Link
                       key={item.path}
                       to={item.path}
-                      className={`block w-full text-center px-6 py-4 rounded-xl transition-all duration-300 font-medium ${
+                      className={`block w-full text-center px-6 py-3 rounded-lg transition-all duration-200 font-semibold ${
                         item.path === '/signup'
-                          ? 'bg-[var(--color-base)] text-[var(--color-black-canvas)] hover:bg-[var(--color-hover)]'
-                          : 'bg-transparent text-[var(--color-base)] border border-[var(--color-base)] hover:bg-[var(--color-base)]/10'
+                          ? 'bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary)]/90'
+                          : 'bg-transparent text-[var(--color-primary)] border border-[var(--color-primary)] hover:bg-[var(--color-primary)]/10'
                       }`}
                       onClick={closeMobileMenu}
                     >
-                      <span className="text-lg">{item.label}</span>
+                      <span className="text-sm">{item.label}</span>
                     </Link>
                   ))}
                 </div>

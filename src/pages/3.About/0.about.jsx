@@ -11,7 +11,7 @@ import Team from './7.team';
 
 const AboutPage = () => {
   return (
-    <div className="pt-20 min-h-screen bg-[#FDFBF5] text-[#333333]">
+    <div className="pt-20 min-h-screen text-[#333333]">
       {/* Hero Section */}
       <AboutHero />
       

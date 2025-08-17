@@ -1,16 +1,8 @@
 import React from 'react';
 
-/**
- * About Hero Section Component
- * 
- * Features:
- * - Galaxy background image
- * - Welcome message and platform description
- * - Simple, clean design matching UI
- */
 const AboutHero = () => {
   return (
-    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Galaxy Background Image */}
       <div className="absolute inset-0">
         <img 

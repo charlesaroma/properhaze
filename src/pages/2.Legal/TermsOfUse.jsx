@@ -113,7 +113,7 @@ const TermsOfUse = () => {
         <div className="max-w-2xl ml-8 sm:ml-12 lg:ml-16 px-4 sm:px-6 lg:px-8">
           
           {/* Page Header */}
-          <div className="mb-8 sm:mb-10 md:mb-12">
+          <div className="mt-10 mb-8 sm:mb-10 md:mb-12">
             <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-[var(--color-cream-canvas)] mb-3 sm:mb-4 text-justify">
               Terms of Use
             </h1>
