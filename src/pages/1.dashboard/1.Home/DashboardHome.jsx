@@ -2,7 +2,8 @@ import React from 'react';
 import HeroSection from './HeroSection';
 import EventsCarousel from './EventsCarousel';
 
-const LandingPage = () => {
+// Main Landing Page Component - Used for both root (/) and dashboard (/dashboard) routes
+export const DashboardPage = () => {
   return (
     <div 
       className="pt-20 min-h-screen relative"
@@ -22,4 +23,4 @@ const LandingPage = () => {
   );
 };
 
-export default LandingPage;
+export default DashboardPage;

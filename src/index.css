@@ -98,100 +98,177 @@
   .btn-disabled {
     background-color: var(--color-disabled);
     color: var(--color-placeholder);
-    cursor: not-allowed;
-    opacity: 0.5;
-  }
-
-  /* Input Styles */
-  .input-field {
-    width: 100%;
-    padding: 0.75rem 1rem;
-    background-color: var(--color-black-canvas);
-    border: 1px solid var(--color-border);
+    padding: 0.75rem 1.5rem;
     border-radius: 0.5rem;
-    color: var(--color-cream-canvas);
+    font-weight: 500;
     transition: all 0.2s ease;
-  }
-  
-  .input-field::placeholder {
-    color: var(--color-placeholder);
-  }
-  
-  .input-field:focus {
-    outline: none;
-    box-shadow: 0 0 0 2px var(--color-primary);
-    border-color: transparent;
+    cursor: not-allowed;
   }
 
-  .input-error {
-    border-color: var(--color-error);
-  }
-  
-  .input-error:focus {
-    box-shadow: 0 0 0 2px var(--color-error);
+  /* Navbar Styles */
+  .navbar {
+    background: linear-gradient(135deg, var(--color-black-canvas) 0%, #0a1f2e 100%);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
 
-  /* Card Styles */
+  .navbar-scrolled {
+    background: rgba(5, 20, 29, 0.95);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Profile Dropdown Styles */
+  .profile-dropdown {
+    animation: slideDown 0.2s ease-out;
+  }
+
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Mobile Menu Styles */
+  .mobile-menu {
+    animation: slideIn 0.3s ease-out;
+  }
+
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Logo Styles */
+  .logo-container {
+    background: linear-gradient(135deg, #d1d5db 0%, #9ca3af 100%);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .logo-dots {
+    background: linear-gradient(135deg, #4b5563 0%, #374151 100%);
+  }
+
+  /* Responsive Breakpoints */
+  @media (max-width: 1023px) {
+    .navbar-nav-medium {
+      display: none;
+    }
+  }
+
+  @media (max-width: 1279px) {
+    .navbar-nav-large {
+      display: none;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .navbar-nav-mobile {
+      display: none;
+    }
+  }
+}
+
+/* Input Styles */
+.input-field {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background-color: var(--color-black-canvas);
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  color: var(--color-cream-canvas);
+  transition: all 0.2s ease;
+}
+
+.input-field::placeholder {
+  color: var(--color-placeholder);
+}
+
+.input-field:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--color-primary);
+  border-color: transparent;
+}
+
+.input-error {
+  border-color: var(--color-error);
+}
+
+.input-error:focus {
+  box-shadow: 0 0 0 2px var(--color-error);
+}
+
+/* Card Styles */
+.card {
+  background-color: var(--color-black-canvas);
+  border: 1px solid var(--color-border);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+/* Animation Classes */
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.slide-up {
+  animation: slideUp 0.6s ease-out;
+}
+
+.bounce-in {
+  animation: bounceIn 0.8s ease-out;
+}
+
+/* Confetti Animation */
+.confetti-burst {
+  position: relative;
+  overflow: hidden;
+}
+
+.confetti-burst::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, var(--color-accent), transparent);
+  animation: confettiSpin 2s linear infinite;
+  opacity: 0.1;
+}
+
+/* Glassmorphism Effect */
+.glass {
+  backdrop-filter: blur(16px);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1rem;
+  }
+  
+  .btn-primary, .btn-secondary {
+    padding: 1rem 1.5rem;
+    font-size: 0.875rem;
+  }
+  
   .card {
-    background-color: var(--color-black-canvas);
-    border: 1px solid var(--color-border);
-    border-radius: 0.75rem;
-    padding: 1.5rem;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-  }
-
-  /* Animation Classes */
-  .fade-in {
-    animation: fadeIn 0.5s ease-in-out;
-  }
-
-  .slide-up {
-    animation: slideUp 0.6s ease-out;
-  }
-
-  .bounce-in {
-    animation: bounceIn 0.8s ease-out;
-  }
-
-  /* Confetti Animation */
-  .confetti-burst {
-    position: relative;
-    overflow: hidden;
-  }
-
-  .confetti-burst::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: linear-gradient(45deg, transparent, var(--color-accent), transparent);
-    animation: confettiSpin 2s linear infinite;
-    opacity: 0.1;
-  }
-
-  /* Glassmorphism Effect */
-  .glass {
-    backdrop-filter: blur(16px);
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-  }
-
-  /* Mobile Responsiveness */
-  @media (max-width: 768px) {
-    .container {
-      padding: 0 1rem;
-    }
-    
-    .btn-primary, .btn-secondary {
-      padding: 1rem 1.5rem;
-      font-size: 0.875rem;
-    }
-    
-    .card {
-      padding: 1rem;
-    }
+    padding: 1rem;
   }
 }
 

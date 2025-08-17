@@ -15,20 +15,39 @@ const LoginSchema = Yup.object().shape({
   rememberMe: Yup.boolean(),
 });
 
+// Temporary admin credentials
+const ADMIN_CREDENTIALS = {
+  email: "admin@properhaze.com",
+  password: "admin123"
+};
+
 // Login Page Component
 export const LoginPage = ({ navigateTo }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const [loginError, setLoginError] = useState("");
 
-  const handleSubmit = async (values, { setSubmitting }) => {
+  const handleSubmit = async (values, { setSubmitting, setFieldError }) => {
     setIsLoading(true);
+    setLoginError("");
 
-    // Mock login logic
-    setTimeout(() => {
-      setIsLoading(false);
-      setSubmitting(false);
-      navigateTo("dashboard"); // Simulate navigation to dashboard
-    }, 1500);
+    // Check against admin credentials
+    if (values.email === ADMIN_CREDENTIALS.email && values.password === ADMIN_CREDENTIALS.password) {
+      // Simulate API call delay
+      setTimeout(() => {
+        setIsLoading(false);
+        setSubmitting(false);
+        navigateTo("dashboard"); // Navigate to dashboard on successful login
+      }, 1000);
+    } else {
+      // Simulate API call delay for error
+      setTimeout(() => {
+        setIsLoading(false);
+        setSubmitting(false);
+        setLoginError("Invalid email or password. Please try again.");
+        setFieldError("password", "Invalid credentials");
+      }, 1000);
+    }
   };
 
   return (
@@ -80,6 +99,15 @@ export const LoginPage = ({ navigateTo }) => {
             Please log into your account below
           </p>
 
+          {/* Admin Credentials Info */}
+          <div className="mb-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
+            <p className="text-sm text-blue-800 font-medium mb-2">🔑 Temporary Admin Credentials:</p>
+            <div className="text-xs text-blue-700 space-y-1">
+              <p><strong>Email:</strong> admin@properhaze.com</p>
+              <p><strong>Password:</strong> admin123</p>
+            </div>
+          </div>
+
           <Formik
             initialValues={{
               email: "",
@@ -91,18 +119,18 @@ export const LoginPage = ({ navigateTo }) => {
           >
             {({ errors, touched, isSubmitting }) => (
               <Form className="space-y-3 md:space-y-4">
-            <div>
-              <label
-                htmlFor="email-login"
+                <div>
+                  <label
+                    htmlFor="email-login"
                     className="block text-sm font-medium text-[var(--color-black-canvas)] mb-1"
-              >
-                Email
-              </label>
+                  >
+                    Email
+                  </label>
                   <Field
-                id="email-login"
-                type="email"
-                name="email"
-                placeholder=""
+                    id="email-login"
+                    type="email"
+                    name="email"
+                    placeholder=""
                     className={`w-full px-3 py-2 border border-[var(--color-border)]/20 rounded-lg focus:ring-2 focus:ring-[var(--color-primary)] focus:border-[var(--color-primary)] transition-all duration-200 bg-white text-[var(--color-black-canvas)] placeholder-[var(--color-placeholder)] ${
                       errors.email && touched.email ? "border-[var(--color-error)]" : ""
                     }`}
@@ -111,79 +139,86 @@ export const LoginPage = ({ navigateTo }) => {
                     name="email"
                     component="p"
                     className="text-[var(--color-error)] text-xs mt-1"
-              />
-            </div>
+                  />
+                </div>
 
-            <div>
-              <label
-                htmlFor="password-login"
+                <div>
+                  <label
+                    htmlFor="password-login"
                     className="block text-sm font-medium text-[var(--color-black-canvas)] mb-1"
-              >
-                Password
-              </label>
-              <div className="relative">
+                  >
+                    Password
+                  </label>
+                  <div className="relative">
                     <Field
-                  id="password-login"
+                      id="password-login"
                       type={showPassword ? "text" : "password"}
-                  name="password"
+                      name="password"
                       className={`w-full px-3 py-2 border border-[var(--color-border)]/20 rounded-lg focus:ring-2 focus:ring-[var(--color-primary)] focus:border-[var(--color-primary)] transition-all duration-200 bg-white text-[var(--color-black-canvas)] placeholder-[var(--color-placeholder)] pr-12 ${
                         errors.password && touched.password ? "border-[var(--color-error)]" : ""
                       }`}
-                />
-                <button
-                  type="button"
+                    />
+                    <button
+                      type="button"
                       onClick={() => setShowPassword(!showPassword)}
                       className="absolute right-3 top-1/2 transform -translate-y-1/2 text-[var(--color-placeholder)] hover:text-[var(--color-black-canvas)] focus:outline-none cursor-pointer"
-                >
-                  <Icon
+                    >
+                      <Icon
                         icon={showPassword ? "mdi:eye-off" : "mdi:eye"}
-                    className="w-4 h-4"
-                  />
-                </button>
-              </div>
+                        className="w-4 h-4"
+                      />
+                    </button>
+                  </div>
                   <ErrorMessage
                     name="password"
                     component="p"
                     className="text-[var(--color-error)] text-xs mt-1"
                   />
-            </div>
+                </div>
 
-            <div className="flex items-center justify-between">
-              <label
-                htmlFor="remember-me"
-                className="flex items-center cursor-pointer"
-              >
+                {/* Login Error Display */}
+                {loginError && (
+                  <div className="p-3 bg-red-50 border border-red-200 rounded-lg">
+                    <p className="text-sm text-red-700">{loginError}</p>
+                  </div>
+                )}
+
+                <div className="flex items-center justify-between">
+                  <label
+                    htmlFor="remember-me"
+                    className="flex items-center cursor-pointer"
+                  >
                     <Field
-                  id="remember-me"
-                  type="checkbox"
-                  name="rememberMe"
+                      id="remember-me"
+                      type="checkbox"
+                      name="rememberMe"
                       className="rounded border-[var(--color-border)] text-[var(--color-primary)] shadow-sm focus:ring-[var(--color-primary)]"
-                />
+                    />
                     <span className="ml-2 text-sm text-[var(--color-black-canvas)]">Remember me</span>
-              </label>
-              <button
-                type="button"
-                onClick={() => navigateTo("forgot-password")}
+                  </label>
+                  <button
+                    type="button"
+                    onClick={() => navigateTo("forgot-password")}
                     className="text-sm text-[var(--color-primary)] hover:text-[var(--color-primary)]/80 focus:outline-none cursor-pointer"
-              >
-                Forgot Password
-              </button>
-            </div>
+                  >
+                    Forgot Password
+                  </button>
+                </div>
 
-            <button
-              type="submit"
+                <button
+                  type="submit"
                   disabled={isLoading || isSubmitting}
                   className="w-full bg-[var(--color-black-canvas)] text-[var(--color-cream-canvas)] py-2 rounded-lg font-semibold hover:bg-[var(--color-black-canvas)]/90 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed shadow-md hover:shadow-lg flex items-center justify-center cursor-pointer"
-            >
-              {isLoading ? (
-                <Icon
-                  icon="mdi:loading"
-                  className="w-4 h-4 animate-spin mr-2"
-                />
-              ) : (
-                "Login"
-              )}
-            </button>
+                >
+                  {isLoading ? (
+                    <Icon
+                      icon="mdi:loading"
+                      className="w-4 h-4 animate-spin mr-2"
+                    />
+                  ) : (
+                    "Login"
+                  )}
+                </button>
               </Form>
             )}
           </Formik>
@@ -197,8 +232,8 @@ export const LoginPage = ({ navigateTo }) => {
               Sign up
             </button>
           </p>
-      </div>
         </div>
+      </div>
     </div>
   );
 };
