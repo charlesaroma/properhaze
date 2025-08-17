@@ -9,7 +9,7 @@ const Navbar = ({ isAuthenticated, onLogout, disableScrollBg = false }) => {
   const location = useLocation();
   const profileDropdownRef = useRef(null);
 
-  // All menu items for authenticated users (navigation + additional menu)
+  // Navigation Configuration
   const authenticatedMenuItems = [
     { path: '/dashboard', label: 'Home' },
     { path: '/profile', label: 'My Profile' },
@@ -22,16 +22,12 @@ const Navbar = ({ isAuthenticated, onLogout, disableScrollBg = false }) => {
     { path: null, label: 'Logout', icon: 'mdi:logout', action: 'logout' },
   ];
 
-  // Navigation items only (for desktop navigation)
-  const navigationItems = authenticatedMenuItems.slice(0, 4);
+  // Navigation Segments
+  const navigationItems = authenticatedMenuItems.slice(0, 4);           // Main nav items
+  const additionalMenuItems = authenticatedMenuItems.slice(4);          // Dropdown menu items
+  const allNavItems = authenticatedMenuItems.filter(item => item.action !== 'logout'); // Mobile menu items
 
-  // Additional menu items only (for profile dropdown, mobile menu)
-  const additionalMenuItems = authenticatedMenuItems.slice(4);
-
-  // All navigation items combined for mobile menu (excluding logout action)
-  const allNavItems = authenticatedMenuItems.filter(item => item.action !== 'logout');
-
-  // Auth items for non-authenticated users
+  // Authentication Options
   const authItems = [
     { path: '/login', label: 'Login' },
     { path: '/signup', label: 'Signup' }
@@ -108,8 +104,10 @@ const Navbar = ({ isAuthenticated, onLogout, disableScrollBg = false }) => {
       }`}
     >
       <div className="container mx-auto px-6">
+        {/* Main Navigation Bar */}
         <div className="flex items-center justify-between h-20">
-          {/* Logo - Always visible */}
+          
+          {/* Brand Logo */}
           <Link to={isAuthenticated ? "/dashboard" : "/"} className="flex items-center space-x-3" onClick={closeMobileMenu}>
             <img 
               src="/images/Logo.png" 
@@ -118,7 +116,7 @@ const Navbar = ({ isAuthenticated, onLogout, disableScrollBg = false }) => {
             />
           </Link>
 
-          {/* Desktop Navigation - Large screens (xl and above) */}
+          {/* Desktop Navigation - Large Screens (xl+) */}
           {isAuthenticated && (
             <div className="hidden xl:flex items-center space-x-8 navbar-nav-large">
               {navigationItems.map((item) => (
@@ -137,7 +135,7 @@ const Navbar = ({ isAuthenticated, onLogout, disableScrollBg = false }) => {
             </div>
           )}
 
-          {/* Medium screens (lg) - Hide Home link, show burger menu */}
+          {/* Desktop Navigation - Medium Screens (lg to xl) */}
           {isAuthenticated && (
             <div className="hidden lg:flex xl:hidden items-center space-x-6 navbar-nav-medium">
               {navigationItems.slice(1).map((item) => (
@@ -156,7 +154,7 @@ const Navbar = ({ isAuthenticated, onLogout, disableScrollBg = false }) => {
             </div>
           )}
 
-          {/* Desktop Right Section - Large screens show profile picture */}
+          {/* Right Section - Profile & Auth */}
           <div className="hidden xl:flex items-center space-x-4">
             {isAuthenticated ? (
               <div className="relative" ref={profileDropdownRef}>
@@ -174,7 +172,7 @@ const Navbar = ({ isAuthenticated, onLogout, disableScrollBg = false }) => {
                   <Icon icon="mdi:chevron-down" className={`w-4 h-4 text-white transition-transform duration-200 ${isProfileDropdownOpen ? 'rotate-180' : ''}`} />
                 </button>
 
-                {/* Profile Dropdown */}
+                {/* Profile Dropdown Menu */}
                 {isProfileDropdownOpen && (
                   <div className="absolute right-0 top-full mt-2 w-64 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-50 profile-dropdown">
                     <div className="px-4 py-3 border-b border-gray-100">
@@ -219,7 +217,7 @@ const Navbar = ({ isAuthenticated, onLogout, disableScrollBg = false }) => {
                 )}
               </div>
             ) : (
-              /* Auth Buttons for non-authenticated users */
+              /* Authentication Buttons */
               authItems.map((item) => (
                 <Link
                   key={item.path}
@@ -237,7 +235,7 @@ const Navbar = ({ isAuthenticated, onLogout, disableScrollBg = false }) => {
             )}
           </div>
 
-          {/* Medium screens - Show burger menu instead of profile picture */}
+          {/* Mobile Menu Toggle - Medium Screens */}
           {isAuthenticated && (
             <button
               onClick={toggleMobileMenu}
@@ -248,7 +246,7 @@ const Navbar = ({ isAuthenticated, onLogout, disableScrollBg = false }) => {
             </button>
           )}
 
-          {/* Mobile Menu Button - Always visible on mobile */}
+          {/* Mobile Menu Toggle - Small Screens */}
           <button
             onClick={toggleMobileMenu}
             className="lg:hidden p-2 text-[var(--color-cream-canvas)] hover:text-[var(--color-accent)] transition-colors duration-200"
@@ -264,7 +262,7 @@ const Navbar = ({ isAuthenticated, onLogout, disableScrollBg = false }) => {
         {/* Mobile Navigation Menu */}
         {isMobileMenuOpen && (
           <>
-            {/* Mobile Menu Container - Only for authenticated users */}
+            {/* Authenticated User Menu */}
             {isAuthenticated && (
               <div className="lg:hidden py-6 bg-[var(--color-black-canvas)]/90 backdrop-blur-xl shadow-2xl mobile-menu">
                 <div className="space-y-2">
@@ -294,7 +292,7 @@ const Navbar = ({ isAuthenticated, onLogout, disableScrollBg = false }) => {
               </div>
             )}
 
-            {/* Dropdown for non-authenticated users - Absolutely positioned */}
+            {/* Non-Authenticated User Menu */}
             {!isAuthenticated && (
               <div className="lg:hidden absolute top-full left-0 right-0 mt-2 bg-[var(--color-black-canvas)]/90 backdrop-blur-xl shadow-2xl rounded-2xl mx-6 mobile-menu">
                 <div className="space-y-4 p-10">

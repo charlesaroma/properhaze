@@ -4,7 +4,7 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { Link } from "react-router-dom";
 
-// Validation schema
+// Form Validation Schema
 const LoginSchema = Yup.object().shape({
   email: Yup.string()
     .email("Invalid email address")
@@ -15,23 +15,37 @@ const LoginSchema = Yup.object().shape({
   rememberMe: Yup.boolean(),
 });
 
-// Temporary admin credentials
+// Development Admin Credentials (Remove in production)
 const ADMIN_CREDENTIALS = {
   email: "admin@properhaze.com",
   password: "admin123"
 };
 
-// Login Page Component
+/**
+ * Login Page Component
+ * 
+ * Features:
+ * - User authentication form
+ * - Form validation with Yup
+ * - Responsive design (mobile/desktop)
+ * - Visual branding section
+ * - Error handling and loading states
+ * 
+ * Props:
+ * @param {Function} navigateTo - Navigation callback function
+ */
 export const LoginPage = ({ navigateTo }) => {
+  // Component State
   const [isLoading, setIsLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [loginError, setLoginError] = useState("");
 
+  // Form Submission Handler
   const handleSubmit = async (values, { setSubmitting, setFieldError }) => {
     setIsLoading(true);
     setLoginError("");
 
-    // Check against admin credentials
+    // Authentication Logic (Replace with actual API call)
     if (values.email === ADMIN_CREDENTIALS.email && values.password === ADMIN_CREDENTIALS.password) {
       // Simulate API call delay
       setTimeout(() => {
@@ -52,12 +66,13 @@ export const LoginPage = ({ navigateTo }) => {
 
   return (
     <div className="h-screen flex font-sans overflow-hidden">
-      {/* Left Side - Visual Section with Logo, Background, and Images */}
+      
+      {/* Left Panel - Branding & Visual Elements */}
       <div className="hidden md:block w-full max-w-[375px] relative overflow-hidden">
-        {/* Glass.png background overlay */}
+        {/* Background Glass Effect */}
         <div className="absolute inset-0 bg-[url('/Glass.png')] bg-cover bg-center bg-no-repeat"></div>
         
-        {/* Logo Outline positioned absolutely behind everything */}
+        {/* Logo Outline Background */}
         <div className="absolute inset-0 flex items-center justify-center">
           <img 
             src="/images/logo-outline.png" 
@@ -73,7 +88,7 @@ export const LoginPage = ({ navigateTo }) => {
           </Link>
         </div>
         
-        {/* Kweba.png image positioned at the bottom */}
+        {/* Bottom Kweba Image */}
         <div className="absolute -bottom-18 left-0 right-0 flex items-center justify-center z-5">
           <div className="relative max-w-full h-full">
             <img
@@ -89,9 +104,10 @@ export const LoginPage = ({ navigateTo }) => {
         </div>
       </div>
 
-      {/* Right Side - Login Form */}
+      {/* Right Panel - Login Form */}
       <div className="flex-1 flex items-center justify-center p-4 md:p-6 lg:p-8 bg-[var(--color-cream-canvas)] overflow-y-auto overflow-x-hidden">
         <div className="w-full max-w-md">
+          {/* Page Header */}
           <h2 className="text-xl md:text-2xl font-bold text-[var(--color-black-canvas)] mb-1 md:mb-2">
             Welcome to Properhaze
           </h2>

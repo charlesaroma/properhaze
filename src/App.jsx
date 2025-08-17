@@ -1,22 +1,29 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+// Navigation Components
 import Navbar from './components/Navigation/Navbar';
+import Footer from './components/Navigation/Footer';
+
+// Page Components
 import DashboardPage from './pages/1.dashboard/1.Home/DashboardHome';
 import LoginPage from './pages/0.auth/LoginPage';
 import SignupPage from './pages/0.auth/SignupPage';
 import ForgotPasswordPage from './pages/0.auth/ForgotPasswordPage';
 import ProfilePage from './pages/1.dashboard/2.Profile/MyProfile';    
 import ConfettiHistory from './pages/1.dashboard/3.Confetti/Confetti';
+import Settings from './pages/1.dashboard/5.Settings/0.Settings';
 import PrivacyStatement from './pages/2.Legal/PrivacyStatement';
 import TermsOfUse from './pages/2.Legal/TermsOfUse';
-import Footer from './components/Navigation/Footer';
-import Settings from './pages/1.dashboard/5.Settings/0.Settings';
+import AboutPage from './pages/3.About/0.about';
 
 function App() {
+  // Authentication State
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-  // Check if user is already logged in (from localStorage)
+  // Authentication Management
   useEffect(() => {
+    // Check for existing authentication on app load
     const authStatus = localStorage.getItem('isAuthenticated');
     if (authStatus === 'true') {
       setIsAuthenticated(true);
@@ -39,7 +46,8 @@ function App() {
     <Router>
       <div className="app bg-black-canvas min-h-screen text-cream-canvas">
         <Routes>
-          {/* Landing page with navbar and footer */}
+          
+          {/* Public Landing Page */}
           <Route path="/" element={
             <div>
               <Navbar isAuthenticated={isAuthenticated} onLogout={handleLogout} />
@@ -48,7 +56,7 @@ function App() {
             </div>
           } />
           
-          {/* Auth pages without navbar */}
+          {/* Authentication Pages */}
           <Route path="/login" element={<LoginPage navigateTo={(path) => {
             if (path === 'dashboard') {
               handleLogin();
@@ -69,7 +77,7 @@ function App() {
             window.location.href = `/${path}`;
           }} />} />
           
-          {/* Dashboard pages with navbar - Only accessible when authenticated */}
+          {/* Protected Dashboard Routes */}
           <Route path="/dashboard" element={
             isAuthenticated ? (
               <div>
@@ -97,6 +105,7 @@ function App() {
             )
           } />
           
+          {/* Protected User Profile Route */}
           <Route path="/profile" element={
             isAuthenticated ? (
               <div>
@@ -124,6 +133,7 @@ function App() {
             )
           } />
           
+          {/* Protected Confetti History Route */}
           <Route path="/confetti" element={
             isAuthenticated ? (
               <div>
@@ -151,6 +161,7 @@ function App() {
             )
           } />
           
+          {/* Protected Wallet Route */}
           <Route path="/wallet" element={
             isAuthenticated ? (
               <div>
@@ -183,6 +194,7 @@ function App() {
             )
           } />
           
+          {/* Protected Settings Route */}
           <Route path="/settings" element={
             isAuthenticated ? (
               <div>
@@ -210,7 +222,7 @@ function App() {
             )
           } />
           
-          {/* Legal pages with navbar and footer */}
+          {/* Public Legal Pages */}
           <Route path="/privacy" element={
             <div>
               <div className="fixed top-0 left-0 right-0 z-40 bg-[var(--color-black-canvas)] shadow-lg">
@@ -230,18 +242,13 @@ function App() {
             </div>
           } />
           
-          {/* About Us page */}
+          {/* Public About Page */}
           <Route path="/about" element={
             <div>
               <div className="fixed top-0 left-0 right-0 z-40 bg-[var(--color-black-canvas)] shadow-lg">
                 <Navbar isAuthenticated={isAuthenticated} onLogout={handleLogout} />
               </div>
-              <div className="pt-20 min-h-screen bg-[var(--color-black-canvas)] text-[var(--color-cream-canvas)] flex items-center justify-center">
-                <div className="text-center">
-                  <h1 className="text-4xl font-bold mb-4">About Properhaze</h1>
-                  <p className="text-[var(--color-placeholder)]">About page coming soon...</p>
-                </div>
-              </div>
+              <AboutPage />
               <Footer />
             </div>
           } />

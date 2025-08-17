@@ -1,8 +1,13 @@
 import React from 'react';
+
+// Page Components
 import HeroSection from './HeroSection';
 import EventsCarousel from './EventsCarousel';
 
-// Main Landing Page Component - Used for both root (/) and dashboard (/dashboard) routes
+// This component serves as the main landing page for both:
+// - Root route (/) - Public landing page
+// - Dashboard route (/dashboard) - Authenticated user dashboard
+
 export const DashboardPage = () => {
   return (
     <div 
@@ -14,10 +19,10 @@ export const DashboardPage = () => {
         backgroundRepeat: 'no-repeat'
       }}
     >
-      {/* Hero Section with Search */}
+      {/* Hero Section - Main content and search interface */}
       <HeroSection />
       
-      {/* Events Carousel */}
+      {/* Events Carousel - Featured events display */}
       <EventsCarousel />
     </div>
   );
