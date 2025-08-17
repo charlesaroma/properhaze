@@ -162,7 +162,7 @@ const Navbar = ({ isAuthenticated, onLogout, disableScrollBg = false }) => {
               <div className="relative" ref={profileDropdownRef}>
                 <button
                   onClick={toggleProfileDropdown}
-                  className="flex items-center space-x-2 text-[var(--color-cream-canvas)] hover:text-[var(--color-accent)] transition-all duration-200 group"
+                  className="flex items-center space-x-2 text-[var(--color-cream-canvas)] hover:text-[var(--color-accent)] transition-all duration-200 group cursor-pointer"
                 >
                   <div className="w-10 h-10 rounded-full bg-gray-400 overflow-hidden ring-2 ring-transparent group-hover:ring-[var(--color-accent)] transition-all duration-200">
                     <img 
