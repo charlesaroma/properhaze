@@ -31,25 +31,7 @@ const CONFETTI_TABLE_DATA = [
   { id: 27, description: 'Received Confetti from', profile: 'Profile name', amount: 100, currency: 'KSh', timestamp: '2024-08-13 15:08 PM' },
   { id: 28, description: 'Received Confetti from', profile: 'Profile name', amount: 100, currency: 'KSh', timestamp: '2024-08-13 15:08 PM' },
   { id: 29, description: 'Received Confetti from', profile: 'Profile name', amount: 100, currency: 'KSh', timestamp: '2024-08-13 15:08 PM' },
-  { id: 30, description: 'Received Confetti from', profile: 'Profile name', amount: 100, currency: 'KSh', timestamp: '2024-08-13 15:08 PM' },
-  { id: 31, description: 'Received Confetti from', profile: 'Profile name', amount: 100, currency: 'KSh', timestamp: '2024-08-13 15:08 PM' },
-  { id: 32, description: 'Received Confetti from', profile: 'Profile name', amount: 100, currency: 'KSh', timestamp: '2024-08-13 15:08 PM' },
-  { id: 33, description: 'Received Confetti from', profile: 'Profile name', amount: 100, currency: 'KSh', timestamp: '2024-08-13 15:08 PM' },
-  { id: 34, description: 'Received Confetti from', profile: 'Profile name', amount: 100, currency: 'KSh', timestamp: '2024-08-13 15:08 PM' },
-  { id: 35, description: 'Received Confetti from', profile: 'Profile name', amount: 100, currency: 'KSh', timestamp: '2024-08-13 15:08 PM' },
-  { id: 36, description: 'Received Confetti from', profile: 'Profile name', amount: 100, currency: 'KSh', timestamp: '2024-08-13 15:08 PM' },
-  { id: 37, description: 'Received Confetti from', profile: 'Profile name', amount: 100, currency: 'KSh', timestamp: '2024-08-13 15:08 PM' },
-  { id: 38, description: 'Received Confetti from', profile: 'Profile name', amount: 100, currency: 'KSh', timestamp: '2024-08-13 15:08 PM' },
-  { id: 39, description: 'Received Confetti from', profile: 'Profile name', amount: 100, currency: 'KSh', timestamp: '2024-08-13 15:08 PM' },
-  { id: 40, description: 'Received Confetti from', profile: 'Profile name', amount: 100, currency: 'KSh', timestamp: '2024-08-13 15:08 PM' },
-  { id: 41, description: 'Received Confetti from', profile: 'Profile name', amount: 100, currency: 'KSh', timestamp: '2024-08-13 15:08 PM' },
-  { id: 42, description: 'Received Confetti from', profile: 'Profile name', amount: 100, currency: 'KSh', timestamp: '2024-08-13 15:08 PM' },
-  { id: 43, description: 'Received Confetti from', profile: 'Profile name', amount: 100, currency: 'KSh', timestamp: '2024-08-13 15:08 PM' },
-  { id: 44, description: 'Received Confetti from', profile: 'Profile name', amount: 100, currency: 'KSh', timestamp: '2024-08-13 15:08 PM' },
-  { id: 45, description: 'Received Confetti from', profile: 'Profile name', amount: 100, currency: 'KSh', timestamp: '2024-08-13 15:08 PM' },
-  { id: 46, description: 'Received Confetti from', profile: 'Profile name', amount: 100, currency: 'KSh', timestamp: '2024-08-13 15:08 PM' },
-  { id: 47, description: 'Received Confetti from', profile: 'Profile name', amount: 100, currency: 'KSh', timestamp: '2024-08-13 15:08 PM' },
-  { id: 48, description: 'Received Confetti from', profile: 'Profile name', amount: 100, currency: 'KSh', timestamp: '2024-08-13 15:08 PM' },
+  { id: 30, description: 'Received Confetti from', profile: 'Profile name', amount: 100, currency: 'KSh', timestamp: '2024-08-13 15:08 PM' }
 ]
 
 export default CONFETTI_TABLE_DATA
