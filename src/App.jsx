@@ -11,7 +11,7 @@ import LoginPage from './pages/0.auth/LoginPage';
 import SignupPage from './pages/0.auth/SignupPage';
 import ForgotPasswordPage from './pages/0.auth/ForgotPasswordPage';
 import ProfilePage from './pages/1.dashboard/2.Profile/MyProfile';    
-import ConfettiHistory from './pages/1.dashboard/3.Confetti/Confetti';
+import ConfettiHistory from './pages/1.dashboard/3.Confetti/0.Confetti';
 import Settings from './pages/1.dashboard/5.Settings/0.Settings';
 import PrivacyStatement from './pages/2.Legal/PrivacyStatement';
 import TermsOfUse from './pages/2.Legal/TermsOfUse';
