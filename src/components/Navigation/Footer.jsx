@@ -9,7 +9,7 @@ const Footer = () => {
           
           {/* Copyright Section */}
           <div className="text-[var(--color-placeholder)] text-xs sm:text-sm text-center md:text-left">
-            <span>&copy; 2024 Properhaze Ltd. All rights reserved.</span>
+            <span>&copy; 2024 Properhaze Ltd.</span>
           </div>
           
           {/* Legal & Information Links */}
