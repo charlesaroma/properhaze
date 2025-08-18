@@ -89,7 +89,7 @@ const ConfettiTable = () => {
     <section className="w-full">
       <div className="rounded-xl bg-white p-6 text-[#1D1E20] border border-gray-300">
         {/* Toolbar */}
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3 p-4">
+        <div className="flex sm:flex-row md:items-center md:justify-between gap-3 p-4">
           <div className="relative w-full md:w-72">
             <MagnifyingGlassIcon className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-[#1D1E20]/60" />
             <input
