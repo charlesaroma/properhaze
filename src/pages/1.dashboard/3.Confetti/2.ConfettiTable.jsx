@@ -59,6 +59,10 @@ const PageSizeSelect = ({ table }) => {
 const ConfettiTable = () => {
   const [globalFilter, setGlobalFilter] = React.useState('')
   const [data] = React.useState(() => [...CONFETTI_TABLE_DATA])
+  const [pagination, setPagination] = React.useState({
+    pageIndex: 0,
+    pageSize: 10,
+  })
 
   const filteredData = React.useMemo(() => {
     if (!globalFilter) return data
@@ -74,12 +78,15 @@ const ConfettiTable = () => {
   const table = useReactTable({
     data: filteredData,
     columns,
-    state: {},
+    state: {
+      pagination,
+    },
+    onPaginationChange: setPagination,
     getCoreRowModel: getCoreRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
     getSortedRowModel: getSortedRowModel(),
     initialState: {
-      pagination: { pageSize: 8 },
+      pagination: { pageSize: 10 },
     },
   })
 
