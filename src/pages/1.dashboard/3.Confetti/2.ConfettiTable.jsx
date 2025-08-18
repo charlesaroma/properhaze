@@ -47,7 +47,7 @@ const PageSizeSelect = ({ table }) => {
       onChange={(e) => table.setPageSize(Number(e.target.value))}
       className="rounded-md border border-gray-300 bg-white px-2 py-1 text-sm"
     >
-      {[8, 10, 20, 30, 40, 50].map((pageSize) => (
+      {[5, 10, 15, 20, 25, 30].map((pageSize) => (
         <option key={pageSize} value={pageSize}>
           {pageSize}
         </option>
