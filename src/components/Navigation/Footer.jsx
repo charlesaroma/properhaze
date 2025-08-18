@@ -13,7 +13,7 @@ const Footer = () => {
           </div>
           
           {/* Legal & Information Links */}
-          <div className="flex sm:flex-row items-center justify-center space-y-2 sm:space-y-0 sm:space-x-4 md:space-x-6 text-xs sm:text-sm">
+          <div className="flex sm:flex-row items-center justify-center space-x-2 sm:space-x-4 md:space-x-6 text-xs sm:text-sm">
             <Link 
               to="/privacy" 
               className="text-[var(--color-placeholder)] hover:text-[var(--color-accent)] transition-colors duration-200 font-medium cursor-pointer"
