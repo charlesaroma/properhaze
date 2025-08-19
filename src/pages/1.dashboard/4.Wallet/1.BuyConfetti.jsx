@@ -69,7 +69,7 @@ const BuyConfetti = () => {
           setIsOpen(true);
           console.log('Opening modal');
         }}
-        className="h-14 w-full sm:h-36 sm:w-56 rounded-3xl bg-white text-[var(--color-on-contrast)] text-base sm:text-xl font-medium shadow-inner border border-white/70 hover:bg-white/80 transition cursor-pointer"
+        className="py-2 px-6 md:min-h-28 rounded-md bg-white text-[var(--color-on-contrast)] text-sm md:text-base font-medium shadow-inner border border-white/70 hover:bg-white/80 transition cursor-pointer"
       >
         Buy Confetti
       </button>

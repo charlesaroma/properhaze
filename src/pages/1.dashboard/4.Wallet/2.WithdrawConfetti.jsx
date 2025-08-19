@@ -13,7 +13,7 @@ const WithdrawConfetti = () => {
     <>
       <button
         onClick={() => setIsOpen(true)}
-        className="h-14 w-full sm:h-36 sm:w-56 rounded-3xl bg-transparent text-white text-base sm:text-xl font-medium border border-white/70 hover:bg-white/5 transition cursor-pointer"
+        className="py-2 px-6 w-full md:min-h-28 rounded-md bg-transparent text-white text-sm md:text-base font-medium border border-white/70 hover:bg-white/5 transition cursor-pointer"
       >
         Withdraw
       </button>
