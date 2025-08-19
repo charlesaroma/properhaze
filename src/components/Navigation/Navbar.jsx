@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Icon } from '@iconify/react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const Navbar = ({ isAuthenticated, onLogout, disableScrollBg = false }) => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -94,7 +95,10 @@ const Navbar = ({ isAuthenticated, onLogout, disableScrollBg = false }) => {
   };
 
   return (
-    <nav
+    <motion.nav
+      initial={{ y: -20, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.5, ease: 'easeOut' }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out ${
         isScrolled 
           ? 'bg-[var(--color-black-canvas)] backdrop-blur-xl border-b border-white/10 shadow-lg' 
@@ -171,8 +175,15 @@ const Navbar = ({ isAuthenticated, onLogout, disableScrollBg = false }) => {
                 </button>
 
                 {/* Profile Dropdown Menu */}
+                <AnimatePresence>
                 {isProfileDropdownOpen && (
-                  <div className="absolute right-0 top-full mt-2 w-64 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-50 profile-dropdown">
+                  <motion.div
+                    initial={{ opacity: 0, y: -8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -8 }}
+                    transition={{ duration: 0.2, ease: 'easeOut' }}
+                    className="absolute right-0 top-full mt-2 w-64 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-50 profile-dropdown"
+                  >
                     <div className="px-4 py-3 border-b border-gray-100">
                       <div className="flex items-center justify-between">
                         <div className="flex items-center space-x-3">
@@ -219,8 +230,9 @@ const Navbar = ({ isAuthenticated, onLogout, disableScrollBg = false }) => {
                         )
                       ))}
                     </div>
-                  </div>
+                  </motion.div>
                 )}
+                </AnimatePresence>
               </div>
             ) : (
               /* Authentication Buttons */
@@ -266,11 +278,18 @@ const Navbar = ({ isAuthenticated, onLogout, disableScrollBg = false }) => {
         </div>
 
         {/* Mobile Navigation Menu */}
+        <AnimatePresence>
         {isMobileMenuOpen && (
           <>
             {/* Authenticated User Menu */}
             {isAuthenticated && (
-              <div className="lg:hidden absolute top-full left-0 right-0 mt-2 mx-6 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-50 mobile-menu">
+              <motion.div
+                initial={{ opacity: 0, y: -8 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -8 }}
+                transition={{ duration: 0.2, ease: 'easeOut' }}
+                className="lg:hidden absolute top-full left-0 right-0 mt-2 mx-6 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-50 mobile-menu"
+              >
                 {/* User Profile Header */}
                 <div className="px-4 py-3 border-b border-gray-100">
                   <div className="flex items-center justify-between">
@@ -322,12 +341,18 @@ const Navbar = ({ isAuthenticated, onLogout, disableScrollBg = false }) => {
                     Logout
                   </button>
                 </div>
-              </div>
+              </motion.div>
             )}
 
             {/* Non-Authenticated User Menu */}
             {!isAuthenticated && (
-              <div className="lg:hidden absolute top-full left-0 right-0 mt-2 mx-6 bg-white rounded-lg shadow-xl border border-gray-200 py-4 z-50 mobile-menu">
+              <motion.div
+                initial={{ opacity: 0, y: -8 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -8 }}
+                transition={{ duration: 0.2, ease: 'easeOut' }}
+                className="lg:hidden absolute top-full left-0 right-0 mt-2 mx-6 bg-white rounded-lg shadow-xl border border-gray-200 py-4 z-50 mobile-menu"
+              >
                 <div className="space-y-3 px-4">
                   {authItems.map((item) => (
                     <Link
@@ -344,12 +369,13 @@ const Navbar = ({ isAuthenticated, onLogout, disableScrollBg = false }) => {
                     </Link>
                   ))}
                 </div>
-              </div>
+              </motion.div>
             )}
           </>
         )}
+        </AnimatePresence>
       </div>
-    </nav>
+    </motion.nav>
   );
 };
 

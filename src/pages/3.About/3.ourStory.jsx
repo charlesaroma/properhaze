@@ -1,20 +1,14 @@
 import React from "react";
+import { motion } from "framer-motion";
 
-/**
- * Our Story Section Component
- *
- * Features:
- * - "Our Story" section explaining Properhaze platform
- * - "Reciprocate Delight" section about the core theme
- * - Simple, clean text layout matching UI design
- */
+
 const OurStory = () => {
   return (
     <section className="py-16 bg-[var(--color-black-canvas)]">
       <div className="container mx-auto px-6">
-        <div className="max-w-2xl mx-auto text-center">
+        <motion.div className="max-w-2xl mx-auto text-center" initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.55, ease: "easeOut" }}>
           {/* Our Story Section */}
-          <div className="mb-10">
+          <motion.div className="mb-10" initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.45, ease: "easeOut" }}>
             <h2 className="text-lg sm:text-xl font-bold text-[var(--color-link)] mb-6 text-center">
               Our Story
             </h2>
@@ -26,8 +20,8 @@ const OurStory = () => {
               to others they'll celebrate you in return. By celebrating such
               individuals, we can build a happier world.
             </p>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );

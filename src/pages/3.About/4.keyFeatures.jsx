@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { Icon } from '@iconify/react';
 
 const KeyFeatures = () => {
@@ -8,13 +9,13 @@ const KeyFeatures = () => {
       id: 1,
       title: "Profile Search",
       description: "Search and find desired profiles through the search bar in the homepage.",
-      icon: "mdi:account-search"
+      iconKey: 'search'
     },
     {
       id: 2,
       title: "Reciprocate Delight",
       description: "Use (Press/buzzz) the \"Buzzer Button\" on public profiles to send confetti (monetary rewards).",
-      icon: "mdi:hand-pointing-up"
+      iconKey: 'buzzer'
     }
   ];
 
@@ -23,13 +24,13 @@ const KeyFeatures = () => {
       id: 3,
       title: "Personalized Note",
       description: "Write a message to make it special when sending confetti.",
-      icon: "mdi:note-text"
+      iconKey: 'note'
     },
     {
       id: 4,
       title: "Media Attachments",
       description: "Upload photos, audio, or videos to enhance the celebration.",
-      icon: "mdi:image-multiple"
+      iconKey: 'images'
     }
   ];
 
@@ -38,26 +39,63 @@ const KeyFeatures = () => {
       id: 5,
       title: "Anonymous Mode",
       description: "Send confetti anonymously, allowing you to celebrate without revealing your identity.",
-      icon: "mdi:incognito"
+      iconKey: 'anonymous'
     },
     {
       id: 6,
       title: "Event-Based Gifting",
       description: "Choose from listed events or create a custom one to align with daily or personal celebrations.",
-      icon: "mdi:calendar"
+      iconKey: 'calendar'
     }
   ];
 
+  // Icon mapping to animated Iconify glyphs (kept unique yet safe)
+  const IconComponent = ({ name }) => {
+    const common = 'w-6 h-6 text-white';
+    switch (name) {
+      case 'search':
+        return <Icon icon="mdi:magnify" className={common} />;
+      case 'buzzer':
+        return <Icon icon="mdi:gesture-tap-button" className={common} />;
+      case 'note':
+        return <Icon icon="mdi:note-text-outline" className={common} />;
+      case 'images':
+        return <Icon icon="mdi:image-multiple-outline" className={common} />;
+      case 'anonymous':
+        return <Icon icon="mdi:incognito" className={common} />;
+      case 'calendar':
+        return <Icon icon="mdi:calendar-month-outline" className={common} />;
+      default:
+        return <Icon icon="mdi:star-circle-outline" className={common} />;
+    }
+  };
+
   // Feature item component
   const FeatureItem = ({ feature }) => (
-    <div className="flex items-start space-x-4 mb-8">
-      {/* Icon Container */}
-      <div className="w-12 h-12 bg-[#B8A050] rounded-lg flex items-center justify-center flex-shrink-0">
-        <Icon 
-          icon={feature.icon} 
-          className="w-6 h-6 text-white"
+    <motion.div
+      className="flex items-start space-x-4 mb-8"
+      initial={{ opacity: 0, y: 14 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.3 }}
+      transition={{ duration: 0.5, ease: 'easeOut' }}
+    >
+      {/* Icon Container with subtle motion and sheen */}
+      <motion.div
+        className="relative w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0"
+        style={{ background: 'linear-gradient(145deg, #B8A050, #a08a47)' }}
+        animate={{ y: [0, -3, 0] }}
+        transition={{ duration: 2.2, repeat: Infinity, ease: 'easeInOut' }}
+        whileHover={{ scale: 1.07, rotate: 1 }}
+      >
+        <span className="relative z-[1]">
+          <IconComponent name={feature.iconKey} />
+        </span>
+        <span className="pointer-events-none absolute inset-0 rounded-lg"
+              style={{
+                background: 'radial-gradient(60% 60% at 30% 20%, rgba(255,255,255,0.35) 0%, rgba(255,255,255,0) 60%)'
+              }}
         />
-      </div>
+      </motion.div>
       
       {/* Content */}
       <div className="flex-1">
@@ -68,7 +106,7 @@ const KeyFeatures = () => {
           {feature.description}
         </p>
       </div>
-    </div>
+    </motion.div>
   );
 
   return (

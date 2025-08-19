@@ -1,27 +1,25 @@
 import React from "react";
+import { motion } from "framer-motion";
 
-/**
- * Buzz Section Component
- *
- * Features:
- * - Central buzzer button icon using actual image
- * - "Buzzz!" title in gold/brown color
- * - Descriptive text about the buzzer button feature
- * - Simple, clean design matching UI
- */
 const Buzz = () => {
   return (
     <section className="py-16 bg-[var(--color-black-canvas)]">
       <div className="container mx-auto px-6">
-        <div className="max-w-2xl mx-auto text-center">
+        <motion.div
+          className="max-w-2xl mx-auto text-center"
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+        >
           {/* Central Icon/Button */}
-          <div className="mb-8">
+          <motion.div className="mb-8" initial={{ scale: 0.9, opacity: 0 }} whileInView={{ scale: 1, opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.4, ease: "easeOut" }}>
             <img
               src="/images/Icon.png"
               alt="Buzzer Button"
-              className="w-auto h-32 mx-auto animate-bounce"
+              className="w-auto h-32 mx-auto"
             />
-          </div>
+          </motion.div>
 
           {/* Reciprocate Delight Section */}
           <div className="mb-16">
@@ -29,16 +27,20 @@ const Buzz = () => {
               Reciprocate Delight
             </h2>
             <p className="text-[var(--color-cream-canvas)] text-xs sm:text-sm leading-relaxed text-justify">
-              The theme is simple yet powerful. Encourage others to reciprocate that delight by surprising them 
-              with a burst of confetti! It's like a seesaw where one player pushes the other up and is immediately 
-              pushed up as well creating shared joy. This creates a ripple effect of positivity. People are motivated 
-              to continue being delightful because it's nice being celebrated. Everyone else would want to be delightful 
-              and this will make the world a delightful place.
+              The theme is simple yet powerful. Encourage others to reciprocate
+              that delight by surprising them with a burst of confetti! It's
+              like a seesaw where one player pushes the other up and is
+              immediately pushed up as well creating shared joy. This creates a
+              ripple effect of positivity. People are motivated to continue
+              being delightful because it's nice being celebrated. Everyone else
+              would want to be delightful and this will make the world a
+              delightful place.
             </p>
           </div>
-
+          {/* Horizontal Separator */}
+          <div className="w-full h-px bg-[#D9D9D9]/30 mx-auto mbya-16"></div>
           {/* Note */}
-          <div className="bg-[var(--color-black-canvas)] border border-[#B8A050]/30 rounded-lg p-4 mb-8 max-w-lg mx-auto">
+          <div className="p-4 mb-8 max-w-lg mx-auto">
             <p className="text-[var(--color-cream-canvas)] text-xs sm:text-sm leading-relaxed text-justify">
               <strong className="text-orange-700">NB:</strong> The spirit of
               reciprocate delight is clear: don't ask for celebration! Instead,
@@ -48,9 +50,7 @@ const Buzz = () => {
               impact. Let's keep the cycle of delight genuine and heartfelt!
             </p>
           </div>
-        </div>
-        {/* Horizontal Separator */}
-        <div className="w-full h-px bg-[#D9D9D9]/30 mx-auto mt-16"></div>
+        </motion.div>
       </div>
     </section>
   );

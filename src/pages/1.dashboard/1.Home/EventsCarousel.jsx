@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -95,23 +96,23 @@ const EventsCarousel = () => {
 
   return (
     <section className="py-8 sm:py-12 md:py-16 lg:py-20 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
+      <motion.div className="max-w-7xl mx-auto" initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.55, ease: 'easeOut' }}>
         
         {/* Section Header */}
-        <div className="text-center mb-8 sm:mb-10 md:mb-12 lg:mb-16">
+        <motion.div className="text-center mb-8 sm:mb-10 md:mb-12 lg:mb-16" initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.45, ease: 'easeOut' }}>
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-5xl font-bold text-cream-canvas">
             Events today
           </h2>
-        </div>
+        </motion.div>
 
         {/* React Slick Carousel Container */}
         <div className="relative">
           <Slider {...settings} className="events-carousel" key={slidesToShow}>
             {/* Individual Event Slides */}
             {events.map((event) => (
-              <div key={event.id} className="px-1 sm:px-2">
+              <motion.div key={event.id} className="px-1 sm:px-2" initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.35, ease: 'easeOut' }}>
                 {/* Changed bg-white to a translucent dark gray for the main card */}
-                <div className="relative rounded-xl overflow-hidden shadow-lg group bg-gray-800/20 backdrop-blur-sm max-w-[280px] sm:max-w-[308px] mx-auto">
+                <motion.div className="relative rounded-xl overflow-hidden shadow-lg group bg-gray-800/20 backdrop-blur-sm max-w-[280px] sm:max-w-[308px] mx-auto" whileHover={{ scale: 1.02 }} transition={{ duration: 0.2 }}>
                   
                   {/* Event Image Container */}
                   <div className="h-[180px] sm:h-[207px] overflow-hidden">
@@ -135,13 +136,12 @@ const EventsCarousel = () => {
                       {event.description}
                     </p>
                   </div>
-                </div>
-              </div>
+                </motion.div>
+              </motion.div>
             ))}
           </Slider>
         </div>
-
-      </div>
+      </motion.div>
     </section>
   );
 };
