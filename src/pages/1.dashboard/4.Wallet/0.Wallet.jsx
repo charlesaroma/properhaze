@@ -22,11 +22,13 @@ const Wallet = () => {
             </div>
           </div>
           {/* Action Buttons */}
-          <div className="flex items-center justify-center">
-            <BuyConfetti />
-          </div>
-          <div className="flex items-center justify-center">
-            <WithdrawConfetti />
+          <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 pt-6 w-full">
+            <div className="flex-1">
+              <BuyConfetti />
+            </div>
+            <div className="flex-1">
+              <WithdrawConfetti />
+            </div>
           </div>
         </div>
 
