@@ -16,6 +16,7 @@ import Settings from './pages/1.dashboard/5.Settings/0.Settings';
 import PrivacyStatement from './pages/2.Legal/PrivacyStatement';
 import TermsOfUse from './pages/2.Legal/TermsOfUse';
 import AboutPage from './pages/3.About/0.about';
+import Wallet from './pages/1.dashboard/4.Wallet/0.Wallet';
 
 function App() {
   // Authentication State
@@ -114,12 +115,7 @@ function App() {
           <Route path="/wallet" element={
             <>
               <Navbar isAuthenticated={isAuthenticated} onLogout={handleLogout} />
-              <div className="pt-20 min-h-screen bg-[var(--color-black-canvas)] text-[var(--color-cream-canvas)] flex items-center justify-center">
-                <div className="text-center">
-                  <h1 className="text-4xl font-bold mb-4">Wallet</h1>
-                  <p className="text-[var(--color-placeholder)]">Wallet functionality coming soon...</p>
-                </div>
-              </div>
+              <Wallet />
               <Footer />
             </>
           } />
