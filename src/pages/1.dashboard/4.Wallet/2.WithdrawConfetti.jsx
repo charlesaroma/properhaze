@@ -6,7 +6,7 @@ const WithdrawConfetti = () => {
   const [phone, setPhone] = React.useState('700 000 000')
   const presets = [20, 40, 60, 80]
   const balance = 12500
-  const commissionRate = 0.2025 // example to match screenshot amount roughly
+  const commissionRate = 0.2025 // example rate; adjust when integrating backend
   const estTotal = amount + amount * commissionRate
 
   return (
@@ -47,12 +47,14 @@ const WithdrawConfetti = () => {
                 />
                 <p className="text-xs text-gray-500 mb-4">Balance in your account wallet KES {balance.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}.</p>
 
-                <div className="flex gap-3 sm:gap-4 flex-wrap mb-8">
+                <div className="flex gap-4 flex-wrap mb-8">
                   {presets.map((v) => (
                     <button
                       key={v}
                       onClick={() => setAmount(Math.round((v / 100) * balance))}
-                      className={`h-10 min-w-[84px] px-5 rounded-xl border ${Math.round((v / 100) * balance) === amount ? 'bg-gray-900 text-white' : 'bg-white'} transition`}
+                      className={`h-11 min-w-[96px] px-6 rounded-xl border text-[var(--color-on-contrast)] ${
+                        Math.round((v / 100) * balance) === amount ? 'bg-white ring-2 ring-[var(--color-black-canvas)] border-transparent' : 'bg-white border-[var(--color-on-contrast)]'
+                      } transition`}
                     >
                       {v}%
                     </button>
@@ -76,12 +78,12 @@ const WithdrawConfetti = () => {
               {/* Right summary */}
               <div className="bg-gray-50 p-6 sm:p-8 flex flex-col justify-between">
                 <div>
-                  <div className="text-2xl font-bold mb-2">KSh {estTotal.toFixed(2)}</div>
+                  <div className="text-3xl md:text-4xl font-semibold text-[var(--color-on-contrast)] mb-2">KSh {estTotal.toFixed(2)}</div>
                   <div className="text-sm text-gray-600">Total amount with commission. The final</div>
                   <div className="text-sm text-gray-600">amount may differ from the indicated.</div>
                 </div>
                 <button
-                  className="mt-6 sm:mt-8 h-12 w-full rounded-xl bg-[#0E2230] text-white hover:opacity-90 transition"
+                  className="mt-auto h-12 w-full rounded-xl bg-[var(--color-black-canvas)] text-white hover:opacity-90 transition"
                 >
                   Request
                 </button>

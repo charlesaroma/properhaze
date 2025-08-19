@@ -1,7 +1,7 @@
-import React from 'react'
-import WalletTable from './3.WalletTable'
-import BuyConfetti from './1.BuyConfetti'
-import WithdrawConfetti from './2.WithdrawConfetti'
+import React from "react";
+import WalletTable from "./3.WalletTable";
+import BuyConfetti from "./1.BuyConfetti";
+import WithdrawConfetti from "./2.WithdrawConfetti";
 
 const Wallet = () => {
   return (
@@ -13,16 +13,21 @@ const Wallet = () => {
         </div>
 
         {/* Summary Card & Actions */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 pt-6">
+        <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 pt-6">
           <div className="rounded-xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm">
-            <div className="text-center">
-              <div className="text-sm opacity-80">Balance</div>
+            <div className="flex flex-col gap-4 text-center justify-center">
+              {" "}
               <div className="text-2xl font-bold">KES 12,500</div>
+              <div className="text-sm opacity-80">Balance</div>
             </div>
           </div>
           {/* Action Buttons */}
-          <div className="flex items-center justify-center"><BuyConfetti /></div>
-          <div className="flex items-center justify-center"><WithdrawConfetti /></div>
+          <div className="flex items-center justify-center">
+            <BuyConfetti />
+          </div>
+          <div className="flex items-center justify-center">
+            <WithdrawConfetti />
+          </div>
         </div>
 
         {/* Wallet Table */}
@@ -31,7 +36,7 @@ const Wallet = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Wallet
+export default Wallet;
