@@ -102,14 +102,14 @@ const BuyConfetti = () => {
             <div className="grid grid-cols-1 md:grid-cols-2">
               {/* Left form section */}
               <div className="p-6 sm:p-10">
-                <h2 className="text-3xl font-bold mb-10">Deposit</h2>
+                <h2 className="text-3xl font-bold mb-10 text-[var(--color-on-contrast)]">Deposit</h2>
 
-                <label className="block text-sm mb-2">Enter amount you want to deposit :</label>
+                <label className="block text-sm mb-2 text-[var(--color-on-contrast)]/80">Enter amount you want to deposit :</label>
                 <input
                   type="number"
                   value={amount}
                   onChange={(e) => setAmount(Number(e.target.value) || 0)}
-                  className="w-full h-12 border border-gray-300 rounded-xl px-4 mb-4"
+                  className="w-full h-12 border border-gray-300 rounded-xl px-4 mb-4 text-[var(--color-on-contrast)] placeholder-gray-400"
                 />
 
                 <div className="flex gap-4 flex-wrap mb-10">
@@ -117,8 +117,8 @@ const BuyConfetti = () => {
                     <button
                       key={v}
                       onClick={() => setAmount(v)}
-                      className={`h-11 min-w-[96px] px-6 rounded-xl border text-[var(--color-on-contrast)] ${
-                        amount === v ? 'bg-white ring-2 ring-[var(--color-black-canvas)] border-transparent' : 'bg-white border-[var(--color-on-contrast)]'
+                      className={`h-11 min-w-[96px] px-6 cursor-pointer rounded-xl border border-gray-300 text-[var(--color-on-contrast)] ${
+                        amount === v ? 'bg-white ring-2 ring-[var(--color-black-canvas)]/60 border-transparent' : 'bg-white border-[var(--color-on-contrast)]'
                       } transition`}
                     >
                       {v}
@@ -127,8 +127,8 @@ const BuyConfetti = () => {
                 </div>
 
                 <div className="mb-8">
-                  <label className="block text-sm mb-3">Choose your preferred payment option :</label>
-                  <div className="grid grid-cols-3 gap-4 bg-gray-100 p-5 rounded-2xl border">
+                  <label className="block text-sm mb-3 text-[var(--color-on-contrast)]/80">Choose your preferred payment option :</label>
+                  <div className="grid grid-cols-3 gap-4 bg-gray-50 p-5 border-gray-200">
                     {[
                       { key: 'mpesa', src: '/images/mpesa-logo.png', alt: 'M-Pesa' },
                       { key: 'airtel', src: '/images/airtel-logo.png', alt: 'Airtel Money' },
@@ -137,7 +137,7 @@ const BuyConfetti = () => {
                       <button
                         key={opt.key}
                         onClick={() => setPaymentOption(opt.key)}
-                        className={`rounded-xl border p-3 bg-white h-16 flex items-center justify-center ${paymentOption === opt.key ? 'ring-2 ring-[var(--color-black-canvas)]' : ''}`}
+                        className={`rounded-xl cursor-pointer border border-gray-300 p-3 bg-white h-16 flex items-center justify-center ${paymentOption === opt.key ? 'ring-2 ring-gray-500' : ''}`}
                         aria-pressed={paymentOption === opt.key}
                       >
                         <img src={opt.src} alt={opt.alt} className="h-7 sm:h-8 object-contain" />
@@ -147,36 +147,30 @@ const BuyConfetti = () => {
                 </div>
 
                 <div className="mb-2">
-                  <label className="block text-sm mb-2">Enter your mobile number :</label>
+                  <label className="block text-sm mb-2 text-[var(--color-on-contrast)]/80">Enter your mobile number :</label>
                   <div className="flex">
-                    <span className="inline-flex items-center px-3 border rounded-l-xl bg-gray-50 text-gray-600">+254</span>
+                    <span className="inline-flex items-center px-3 border border-gray-300 rounded-l-xl bg-gray-50 text-gray-600">+254</span>
                     <input
                       type="text"
                       value={phone}
                       onChange={(e) => setPhone(e.target.value)}
-                      className="w-full h-12 border rounded-r-xl px-4"
+                      className="w-full h-12 border border-gray-300 rounded-r-xl px-4 text-[var(--color-on-contrast)] placeholder-gray-400"
                     />
                   </div>
                 </div>
               </div>
 
-              {/* Right summary section - positioned at bottom of its column */}
-              <div className="bg-gray-50 p-8 sm:p-10 flex flex-col items-start min-h-[420px]"> {/* min-h makes sure there's space to push down */}
-                {/* This inner div groups the text content and uses mt-auto to push itself down */}
-                <div className="mt-auto flex flex-col items-start gap-2"> 
+              {/* Right summary: text top, button bottom full width */}
+              <div className="bg-gray-50 p-8 sm:p-10 flex flex-col min-h-[420px]">
+                <div className="flex flex-col items-start gap-2 mt-auto">
                   <div className="text-3xl md:text-4xl font-semibold text-[var(--color-on-contrast)]">KES {Number(amount || 0).toFixed(2)}</div>
                   <div className="text-sm text-gray-600">100% FREE.</div>
                   <div className="text-sm text-gray-600">No fee to deposit money to your wallet.</div>
-                  <div className="text-sm text-gray-700 font-medium">
-                    {numberToWords(amount)}
-                  </div> <button
-                  className="mt-auto h-12 w-full rounded-xl bg-[var(--color-black-canvas)] text-white hover:opacity-90 transition"
-                >
+                  <div className="text-sm text-gray-700 font-medium">{numberToWords(amount)}</div>
+                </div>
+                <button className="mt-6 h-12 w-full rounded-xl bg-[var(--color-black-canvas)] text-white hover:opacity-90 transition">
                   Top up
                 </button>
-                </div>
-
-               
               </div>
             </div>
           </div>
