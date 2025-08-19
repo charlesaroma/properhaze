@@ -30,7 +30,7 @@ const AboutHero = () => {
             </h2>
             
             {/* Platform Description */}
-            <p className="text-lg md:text-xl text-white leading-relaxed max-w-3xl">
+            <p className="text-base sm:text-normal md:text-lg text-white leading-relaxed max-w-3xl">
               Properhaze is a social celebration platform where individuals can recognize and celebrate 
               others who bring delight to their lives. Our mission is to spread delightfulness and 
               foster a culture of celebration, one buzz at a time.

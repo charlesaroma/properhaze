@@ -12,13 +12,13 @@ import { Icon } from '@iconify/react';
  */
 const Team = () => {
   return (
-    <section className="py-16 bg-[#FDFBF5]">
+    <section className="py-16 bg-[var(--color-black-canvas)]">
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto">
           
           {/* Meet the Team Section */}
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-[#333333] mb-8">
+            <h2 className="text-lg sm:text-xl font-bold text-[var(--color-link)] mb-8">
               Meet the Team
             </h2>
             
@@ -29,23 +29,23 @@ const Team = () => {
                 alt="Robin Inzama - Founder and CEO" 
                 className="w-48 h-48 mx-auto mb-4 rounded-lg object-cover"
               />
-              <h3 className="text-xl font-bold text-[#333333] mb-2">Robin Inzama</h3>
-              <p className="text-[#666666]">Founder and C.E.O</p>
+              <h3 className="text-lg sm:text-xl font-bold text-[var(--color-link)] mb-2">Robin Inzama</h3>
+              <p className="text-[var(--color-cream-canvas)] text-xs sm:text-sm">Founder and C.E.O</p>
             </div>
           </div>
           
           {/* Get in Touch Section */}
-          <div className="text-center">
-            <h2 className="text-3xl font-bold text-[#333333] mb-8">
+          <div className="w-full flex flex-col items-center justify-center text-center">
+            <h2 className="text-lg sm:text-xl font-bold text-[var(--color-link)] mb-8">
               Get in Touch
             </h2>
             
             {/* Contact Information */}
             <div className="mb-8">
-              <p className="text-[#666666] text-lg leading-relaxed mb-4">
-                Contact us at <span className="font-semibold text-[#333333]">properhaze0@gmail.com</span> for feedback, suggestions, or partnership inquiries.
+              <p className="text-[var(--color-cream-canvas)] text-xs sm:text-sm leading-relaxed mb-4 text-justify">
+                Contact us at <span className="font-semibold text-[var(--color-link)]">properhaze0@gmail.com</span> for feedback, suggestions, or partnership inquiries.
               </p>
-              <p className="text-[#666666] text-lg leading-relaxed">
+              <p className="text-[var(--color-cream-canvas)] text-center text-xs sm:text-sm leading-relaxed">
                 Or follow us to stay updated on the latest news, features, and success stories.
               </p>
             </div>

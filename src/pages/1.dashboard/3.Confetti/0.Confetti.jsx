@@ -31,7 +31,7 @@ const ConfettiHistory = () => {
               {/* Logo */}
               <div className="flex max-w-full justify-center items-center ">
                 <img
-                  src="/images/logo-outline.png"
+                  src="/images/Icon.png"
                   alt="Buzzer button logo"
                   className="h-10 w-16 object-contain"
                 />

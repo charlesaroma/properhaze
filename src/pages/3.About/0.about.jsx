@@ -11,27 +11,30 @@ import Team from './7.team';
 
 const AboutPage = () => {
   return (
-    <div className="pt-20 min-h-screen text-[#333333]">
+    <div className="min-h-screen bg-[var(--color-black-canvas)]">
       {/* Hero Section */}
       <AboutHero />
       
-      {/* Buzz Section */}
-      <Buzz />
-      
-      {/* Our Story Section */}
-      <OurStory />
-      
-      {/* Key Features Section */}
-      <KeyFeatures />
-      
-      {/* Events Section */}
-      <Events />
-      
-      {/* Our Values Section */}
-      <OurValues />
-      
-      {/* Team Section */}
-      <Team />
+      {/* Content Sections with consistent background */}
+      <div className="bg-[var(--color-black-canvas)]">
+        {/* Buzz Section */}
+        <Buzz />
+        
+        {/* Our Story Section */}
+        <OurStory />
+        
+        {/* Key Features Section */}
+        <KeyFeatures />
+        
+        {/* Events Section */}
+        <Events />
+        
+        {/* Our Values Section */}
+        <OurValues />
+        
+        {/* Team Section */}
+        <Team />
+      </div>
     </div>
   );
 };

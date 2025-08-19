@@ -1,8 +1,8 @@
-import React from 'react';
+import React from "react";
 
 /**
  * Our Story Section Component
- * 
+ *
  * Features:
  * - "Our Story" section explaining Properhaze platform
  * - "Reciprocate Delight" section about the core theme
@@ -10,36 +10,21 @@ import React from 'react';
  */
 const OurStory = () => {
   return (
-    <section className="py-16 bg-[#FDFBF5]">
+    <section className="py-16 bg-[var(--color-black-canvas)]">
       <div className="container mx-auto px-6">
-        <div className="max-w-4xl mx-auto">
-          
+        <div className="max-w-2xl mx-auto text-center">
           {/* Our Story Section */}
-          <div className="mb-16">
-            <h2 className="text-2xl font-bold text-[#333333] mb-6 text-center">
+          <div className="mb-10">
+            <h2 className="text-lg sm:text-xl font-bold text-[var(--color-link)] mb-6 text-center">
               Our Story
             </h2>
-            <p className="text-[#333333] text-lg leading-relaxed">
-              Properhaze is a true celebrity platform in social media. Celebration is not limited to "Famous people." 
-              Everyone and anyone can have a celebrity moment. If you delight someone, they will reciprocate that 
-              effect of delight back to you by celebrating you. You don't need to be widely known; recognition as 
-              "delightful" is enough. A "buzzer button" is used to dispatch confetti (money) as a medium of celebration. 
-              We believe that acknowledging and celebrating individuals is essential for building a stronger, brighter 
-              and wonderful world.
-            </p>
-          </div>
-          
-          {/* Reciprocate Delight Section */}
-          <div>
-            <h2 className="text-2xl font-bold text-[#333333] mb-6 text-center">
-              Reciprocate Delight
-            </h2>
-            <p className="text-[#333333] text-lg leading-relaxed">
-              The theme is simple yet powerful. Encourage others to reciprocate that delight by surprising them 
-              with a burst of confetti! It's like a seesaw where one player pushes the other up and is immediately 
-              pushed up as well creating shared joy. This creates a ripple effect of positivity. People are motivated 
-              to continue being delightful because it's nice being celebrated. Everyone else would want to be delightful 
-              and this will make the world a delightful place.
+            <p className="text-[var(--color-cream-canvas)] text-xs sm:text-sm leading-relaxed text-justify">
+              Properhaze was created to establish a true celebrity platform in
+              the social media industry, where everyone and anyone can have a
+              celebrity moment. Anyone can shine on Properhaze, regardless of
+              fame, as long as they bring delight to others. When you bring joy
+              to others they'll celebrate you in return. By celebrating such
+              individuals, we can build a happier world.
             </p>
           </div>
         </div>

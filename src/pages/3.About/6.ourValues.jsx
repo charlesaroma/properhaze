@@ -11,12 +11,12 @@ import React from 'react';
  */
 const OurValues = () => {
   return (
-    <section className="py-16 bg-[#FDFBF5]">
+    <section className="py-16 bg-[var(--color-black-canvas)]">
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
           
           {/* Section Header */}
-          <h2 className="text-3xl font-bold text-[#333333] mb-12 text-center">
+          <h2 className="text-lg sm:text-xl font-bold text-[var(--color-link)] mb-12 text-center">
             Our Values
           </h2>
           
@@ -33,10 +33,10 @@ const OurValues = () => {
             
             {/* Text */}
             <div className="order-1 lg:order-2">
-              <h3 className="text-2xl font-bold text-[#333333] mb-4">Delightfulness</h3>
-              <p className="text-[#666666] text-lg leading-relaxed">
-                Making the world a delightful place through celebration of delightful people.
-              </p>
+              <h3 className="text-lg sm:text-xl font-bold text-[var(--color-link)] mb-4">Delightfulness</h3>
+                              <p className="text-[var(--color-cream-canvas)] text-xs sm:text-sm leading-relaxed text-justify">
+                  Making the world a delightful place through the celebration of delightful people.
+                </p>
             </div>
           </div>
           
@@ -44,10 +44,10 @@ const OurValues = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Text */}
             <div>
-              <h3 className="text-2xl font-bold text-[#333333] mb-4">Diversity in Events</h3>
-              <p className="text-[#666666] text-lg leading-relaxed">
-                Encouraging celebration of a diverse range of events to cater to different cultures and interests.
-              </p>
+              <h3 className="text-lg sm:text-xl font-bold text-[var(--color-link)] mb-4">Diversity in Events</h3>
+                              <p className="text-[var(--color-cream-canvas)] text-xs sm:text-sm leading-relaxed text-justify">
+                  Encouraging celebrations of a diverse range of events to cater to different cultures and interests.
+                </p>
             </div>
             
             {/* Image */}

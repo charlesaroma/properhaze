@@ -2,7 +2,7 @@ import React from 'react';
 import { Icon } from '@iconify/react';
 
 const KeyFeatures = () => {
-  // Features organized by columns
+  // Features organized by columns - blending new info with grid design
   const column1Features = [
     {
       id: 1,
@@ -12,24 +12,24 @@ const KeyFeatures = () => {
     },
     {
       id: 2,
-      title: "Attachment Options",
-      description: "Three different types of attachments are available, to accompany confetti. This include: Add note, Add media and Add Event.",
-      icon: "mdi:paperclip"
+      title: "Reciprocate Delight",
+      description: "Use (Press/buzzz) the \"Buzzer Button\" on public profiles to send confetti (monetary rewards).",
+      icon: "mdi:hand-pointing-up"
     }
   ];
 
   const column2Features = [
     {
       id: 3,
-      title: "Buzzer Button Interaction",
-      description: "Reciprocate delight through our unique 'Buzzer Button' availed at every user's public profile page. Through Pressing the buzzer button you'll be able to dispatch a burst of confetti to surprise and delight your chosen recipient.",
-      icon: "mdi:hand-pointing-up"
+      title: "Personalized Note",
+      description: "Write a message to make it special when sending confetti.",
+      icon: "mdi:note-text"
     },
     {
       id: 4,
-      title: "Confetti as Celebration",
-      description: "Confetti (translates to monetary reward) is our medium of celebration.",
-      icon: "mdi:hand-okay"
+      title: "Media Attachments",
+      description: "Upload photos, audio, or videos to enhance the celebration.",
+      icon: "mdi:image-multiple"
     }
   ];
 
@@ -37,13 +37,13 @@ const KeyFeatures = () => {
     {
       id: 5,
       title: "Anonymous Mode",
-      description: "Anonymous option. Users are able to send confetti to another user using an anonymous identity.",
+      description: "Send confetti anonymously, allowing you to celebrate without revealing your identity.",
       icon: "mdi:incognito"
     },
     {
       id: 6,
       title: "Event-Based Gifting",
-      description: "Add Event (either among listed events of the today within the Properhaze system or customize an event) – enables celebration to align with daily or personal events.",
+      description: "Choose from listed events or create a custom one to align with daily or personal celebrations.",
       icon: "mdi:calendar"
     }
   ];
@@ -61,10 +61,10 @@ const KeyFeatures = () => {
       
       {/* Content */}
       <div className="flex-1">
-        <h3 className="text-xl font-bold text-[#333333] mb-2">
+        <h3 className="text-lg sm:text-xl font-bold text-[var(--color-link)] mb-2">
           {feature.title}
         </h3>
-        <p className="text-[#666666] leading-relaxed">
+        <p className="text-[var(--color-cream-canvas)] text-xs sm:text-sm leading-relaxed text-justify">
           {feature.description}
         </p>
       </div>
@@ -72,26 +72,26 @@ const KeyFeatures = () => {
   );
 
   return (
-    <section className="py-16 bg-[#FDFBF5]">
+    <section className="py-16 bg-[var(--color-black-canvas)]">
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
           
           {/* Section Header */}
-          <h2 className="text-3xl font-bold text-[#333333] mb-12 text-center">
+          <h2 className="text-lg sm:text-xl font-bold text-[var(--color-link)] mb-12 text-center">
             Key Features
           </h2>
           
-          {/* Features Grid - 3 Columns with specific organization */}
+          {/* Features Grid - 3 Columns with blended information */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             
-            {/* Column 1: Profile Search & Attachment Options */}
+            {/* Column 1: Profile Search & Reciprocate Delight */}
             <div className="space-y-8">
               {column1Features.map((feature) => (
                 <FeatureItem key={feature.id} feature={feature} />
               ))}
             </div>
             
-            {/* Column 2: Buzzer Button & Confetti */}
+            {/* Column 2: Personalized Note & Media Attachments */}
             <div className="space-y-8">
               {column2Features.map((feature) => (
                 <FeatureItem key={feature.id} feature={feature} />
