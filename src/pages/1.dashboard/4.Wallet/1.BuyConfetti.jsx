@@ -92,7 +92,7 @@ const BuyConfetti = () => {
                 setIsOpen(false);
                 console.log('Closing modal (button)');
               }}
-              className="absolute right-5 top-5 text-gray-600 hover:text-gray-800 text-2xl"
+              className="absolute cursor-pointer right-5 top-5 text-gray-600 hover:text-gray-800 text-2xl"
               aria-label="Close"
             >
               ×
